@@ -2,6 +2,7 @@ use <misc.scad>;
 use <ethoscope_modules.scad>;
 use <ethoscope_render.scad>;
 use <ethoscope_arena_empty.scad>;
+use <ethoscope_tube_stand.scad>;
 
 // ----------------------------------------- //
 // -------- Metabolic rate chamber --------- //
@@ -102,4 +103,36 @@ module arena_wellplate(
         mirror([1,0,0]) magnets(magnet_dims, magnet_size, 3);
       }
   }
+}
+
+module arena_tubes(
+    dims, 
+    magnet_dims, 
+    magnet_size, 
+    tube_dims,
+    makerbeam
+) {
+
+
+    union(){
+        // Arena base
+        arena_empty(
+            dims = dims, 
+            magnet_dims = magnet_dims,
+            magnet_size = magnet_size, 
+            makerbeam = makerbeam
+        );
+        
+        tube_disp = (tube_dims[1]-15) / 2;
+        
+        translate([0,0,tube_dims[0]/4+dims[2]])
+        for (i=[-1,1]){
+            translate([i*tube_disp,0,0])
+            horizontal_tube_rack(
+                tube_diam = tube_dims[0], 
+                beam_width = makerbeam, 
+                rack_length = 170, 
+                insert = false);
+        }
+    }
 }

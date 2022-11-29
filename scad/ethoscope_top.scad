@@ -9,6 +9,7 @@ module ethoscope_end(
     magnet_size, 
     bolt_diam, 
     with_floor=false,
+    with_led=false,
     floor_thick=2
 ) {
      
@@ -19,7 +20,7 @@ module ethoscope_end(
          
          // MakerBeam corner attachments
          union(){
-             wall(dims, wall_thick, with_floor, floor_thick);
+             wall(dims, wall_thick, with_floor, with_led, floor_thick);
              corners(dims, makerbeam);
              mirror([1,0,0]) corners(dims, makerbeam);
              translate([0,0,-(dims[2]-magnet_dims[2])/2]){ // Magnets

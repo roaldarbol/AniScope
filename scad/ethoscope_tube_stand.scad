@@ -14,7 +14,7 @@ use <ethoscope_modules.scad>;
 //horizontal_tube_rack(tube_diam, beam_width, rack_length, insert = true);
 
 //separator only
-tube_separators(sep_length, sep_width, sep_height);
+//tube_separators(sep_length, sep_width, sep_height);
 
 // ========================================= //
 // ================ Specs ================== //
@@ -24,7 +24,7 @@ tube_separators(sep_length, sep_width, sep_height);
 // with these O-rings (https://amzn.to/30EqjF5)
 
 // General specs
-$fn = 30;
+////$fn = 30;
 wall_thick = 2;
 bolt = 3.2;
 bolt_diameter = 0.0; 
@@ -70,7 +70,13 @@ module o_ring(outer_diam, ring_diam) {
             
 
 // === Module: Test tube rack === //
-module horizontal_tube_rack(tube_diam, beam_width, rack_length, insert) {
+module horizontal_tube_rack(
+    tube_diam, 
+    beam_width, 
+    rack_length, 
+    insert
+) {
+    
     min_space_between = 4;
     space_above = 5;
     beam_width = beam_width + 0.2;

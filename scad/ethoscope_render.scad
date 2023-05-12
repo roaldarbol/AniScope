@@ -5,7 +5,7 @@ use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
 
-$fn = 200;
+$fn = 100;
 
 // General
 wall_thick = 3;
@@ -21,7 +21,7 @@ dims = [160,160,15]; //normal length
 magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+wall_thick];
 central_magnet_dims = [50,50,magnet_size[1]*2+wall_thick];
 light_chamber_dims = [dims[0],dims[1],40];
-arena_dims = [dims[0],dims[1],2];
+arena_dims = [dims[0],dims[1],3];
 chamber_dims = [100,20,20]; // [diameter, height, gap width]
 tube_dims = [20.5, 130]; // [diameter, length]
 
@@ -41,8 +41,28 @@ beam_height = 300;
 
 // ======= Full models ======== //
 
+sleep_preference_module($fn = 200);
+
+//arena_sleep_preference(
+//    dims = arena_dims,
+//    magnet_dims = magnet_dims,
+//    magnet_size = magnet_size,
+//    makerbeam = makerbeam,
+//    $fn = 200
+//);
+
+
+//arena_spacer(
+//    dims = arena_dims, 
+//    magnet_dims = magnet_dims,
+//    magnet_size = magnet_size, 
+//    makerbeam = makerbeam,
+//    corner_height = 20
+//    );
+    
+
 ////// Top
-color([0.3,0.3,0.3])
+//color([0.3,0.3,0.3])
 //translate([0,0,beam_height])
 //rotate([180,0,0])
 //ethoscope_end(
@@ -74,18 +94,18 @@ color([0.3,0.3,0.3])
 // color([0.3,0.3,0.3])    
 //translate([0,0,beam_height-1.25*dims[2]])
 //rotate([180,0,0])
-ethoscope_usb_cam_adapter(
-    dims = magnet_dims,
-    makerbeam = makerbeam,
-    wall_thick = 3, 
-    magnet_pos = "bottom",
-    magnet_size = magnet_size, 
-    standoff_dims = central_magnet_dims, 
-    bolt_diam = 2.5,
-    cam_dims = cam_dims, 
-    lens_diam = lens_diam,
-    usb_hole_positions = usb_hole_positions
- );
+//ethoscope_usb_cam_adapter(
+//    dims = magnet_dims,
+//    makerbeam = makerbeam,
+//    wall_thick = 3, 
+//    magnet_pos = "bottom",
+//    magnet_size = magnet_size, 
+//    standoff_dims = central_magnet_dims, 
+//    bolt_diam = 2.5,
+//    cam_dims = cam_dims, 
+//    lens_diam = lens_diam,
+//    usb_hole_positions = usb_hole_positions
+// );
  
 //ethoscope_neopixel_adapter(
 //    dims = magnet_dims,

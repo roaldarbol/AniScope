@@ -246,9 +246,9 @@ module arena_tubes(
             );
             // Remove outer edges
             removal = 20;
-            #translate([((dims[0]+removal/2)/2)-0.4,0,0])
+            translate([((dims[0]+removal/2)/2)-0.4,0,0])
             cube([removal,dims[1],makerbeam], center=true);
-            #translate([((-dims[0]-removal/2)/2)+0.4,0,0])
+            translate([((-dims[0]-removal/2)/2)+0.4,0,0])
             cube([removal,dims[1],makerbeam], center=true);
         }
         
@@ -261,6 +261,7 @@ module arena_tubes(
                 tube_diam = tube_dims[0], 
                 beam_width = makerbeam, 
                 rack_length = 170, 
+                magnet_size = magnet_size,
                 insert = false);
         }
     }

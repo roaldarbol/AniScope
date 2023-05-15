@@ -1,7 +1,5 @@
 use <misc.scad>;
 use <ethoscope_modules.scad>;
-use <ethoscope_render.scad>;
-
 
 module arena_empty(
     dims, 
@@ -35,7 +33,7 @@ module arena_empty(
             magnets([magnet_dims[0], magnet_dims[1], magnet_size[1]+2], magnet_size, 3);
             mirror([1,0,0]) magnets([magnet_dims[0], magnet_dims[1], magnet_size[1]+2], magnet_size, 3);
         }
-        #if (top_magnets == true){
+        if (top_magnets == true){
             // Bottom magnets
             translate([0,0,corner_height-dims[2]/2]){
                 magnets(magnet_dims, magnet_size, 3);

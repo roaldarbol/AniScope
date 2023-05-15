@@ -5,7 +5,7 @@ use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
 
-$fn = 100;
+$fn = $preview ? 60 : 200;
 
 // General
 wall_thick = 3;
@@ -24,6 +24,7 @@ light_chamber_dims = [dims[0],dims[1],40];
 arena_dims = [dims[0],dims[1],3];
 chamber_dims = [100,20,20]; // [diameter, height, gap width]
 tube_dims = [20.5, 130]; // [diameter, length]
+abax_tube_dims = [30, 95+2*15];
 
 // Camera specs
 cam_dims = [50, 50]; // USB: [40,40] - RPi: [30, 25]
@@ -41,15 +42,15 @@ beam_height = 300;
 
 // ======= Full models ======== //
 
-sleep_preference_module($fn = 200);
+// sleep_preference_module($fn = 200);
 
-//arena_sleep_preference(
+// arena_sleep_preference(
 //    dims = arena_dims,
 //    magnet_dims = magnet_dims,
 //    magnet_size = magnet_size,
 //    makerbeam = makerbeam,
 //    $fn = 200
-//);
+// );
 
 
 //arena_spacer(
@@ -170,13 +171,13 @@ sleep_preference_module($fn = 200);
 ////    magnet_size = magnet_size, 
 ////    makerbeam = makerbeam
 ////);
-//arena_tubes(
-//    dims = arena_dims, 
-//    magnet_dims = magnet_dims, 
-//    magnet_size = magnet_size, 
-//    tube_dims = tube_dims,
-//    makerbeam = makerbeam
-//);
+arena_tubes(
+   dims = arena_dims, 
+   magnet_dims = magnet_dims, 
+   magnet_size = magnet_size, 
+   tube_dims = abax_tube_dims,
+   makerbeam = makerbeam
+);
 //
 //
 //// Makerbeams

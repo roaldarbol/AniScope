@@ -7,20 +7,20 @@ magnet_size = [6.2,3]; // diameter, height
 
 $fn = $preview ? 60 : 200;
 
-// ethoscope_metabolic_plug(
+// tube_plug(
 //     hose_on_side = false, 
 //     inner_d = inner_d1, 
 //     outer_d = outer_d1, 
 //     magnet_size = magnet_size
 //     );
 
-ethoscope_metabolic_floor(
+tube_floor(
     chamber_length = chamber_length,
     inner_d1 = inner_d1,
     inner_d2 = inner_d2
     );
 
-module ethoscope_metabolic_plug(
+module tube_plug(
     hose_on_side=false,
     inner_d,
     outer_d,
@@ -126,7 +126,7 @@ module ethoscope_metabolic_plug(
     
 }
 
-module ethoscope_metabolic_floor(
+module tube_floor(
     chamber_length,
     inner_d1,
     inner_d2

@@ -252,7 +252,8 @@ module arena_tubes(
             cube([removal,dims[1],makerbeam], center=true);
         }
         
-        tube_disp = (tube_dims[1]-15) / 2;
+        tube_disp = (tube_dims[2]-15) / 2;
+        echo(tube_disp)
         
         translate([0,0,tube_dims[0]/4+dims[2]])
         for (i=[-1,1]){

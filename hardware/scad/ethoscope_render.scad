@@ -4,6 +4,7 @@ use <ethoscope_cam.scad>;
 use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
+use <ethoscope_tube_plug.scad>;
 
 $fn = $preview ? 60 : 200;
 
@@ -24,7 +25,7 @@ light_chamber_dims = [dims[0],dims[1],40];
 arena_dims = [dims[0],dims[1],3];
 chamber_dims = [100,20,20]; // [diameter, height, gap width]
 tube_dims = [20.5, 130]; // [diameter, length]
-abax_tube_dims = [30, 95+2*15];
+abax_tube_dims = [30, 2, 95+2*15]; // [diameter, thickness, length]
 
 // Camera specs
 cam_dims = [50, 50]; // USB: [40,40] - RPi: [30, 25]
@@ -192,3 +193,17 @@ arena_tubes(
 //    cube([makerbeam, makerbeam, beam_height], center=true);
 //}
 //}
+
+// Tube inserts
+// tube_plug(
+//     hose_on_side = false, 
+//     inner_d = abax_tube_dims[0]-2*abax_tube_dims[1], 
+//     outer_d = abax_tube_dims[0], 
+//     magnet_size = magnet_size
+//     );
+
+// tube_floor(
+//     chamber_length = abax_tube_dims[2],
+//     inner_d1 = abax_tube_dims[0]-2*abax_tube_dims[1],
+//     inner_d2 = abax_tube_dims[0]-2*abax_tube_dims[1]
+//     );

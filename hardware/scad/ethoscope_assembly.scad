@@ -25,7 +25,7 @@ light_chamber_dims = [dims[0],dims[1],40];
 arena_dims = [dims[0],dims[1],3];
 chamber_dims = [100,20,20]; // [diameter, height, gap width]
 tube_dims = [20.5, 130]; // [diameter, length]
-abax_tube_dims = [30, 2, 95+2*15]; // [diameter, thickness, length]
+abax_tube_dims = [30, 2, 100]; // [diameter, thickness, length]
 
 // Camera specs
 cam_dims = [50, 50]; // USB: [40,40] - RPi: [30, 25]
@@ -172,13 +172,13 @@ beam_height = 300;
 ////    magnet_size = magnet_size, 
 ////    makerbeam = makerbeam
 ////);
-arena_tubes(
-   dims = arena_dims, 
-   magnet_dims = magnet_dims, 
-   magnet_size = magnet_size, 
-   tube_dims = abax_tube_dims,
-   makerbeam = makerbeam
-);
+// arena_tubes(
+//    dims = arena_dims, 
+//    magnet_dims = magnet_dims, 
+//    magnet_size = magnet_size, 
+//    tube_dims = abax_tube_dims,
+//    makerbeam = makerbeam
+// );
 //
 //
 //// Makerbeams
@@ -195,13 +195,17 @@ arena_tubes(
 //}
 
 // Tube inserts
-// tube_plug(
-//     hose_on_side = false, 
-//     inner_d = abax_tube_dims[0]-2*abax_tube_dims[1], 
-//     outer_d = abax_tube_dims[0], 
-//     magnet_size = magnet_size
-//     );
+// translate([abax_tube_dims[2]/2,0,0])
+// rotate([0,-90,0])
+tube_plug(
+    hose_on_side = false, 
+    inner_d = abax_tube_dims[0]-2*abax_tube_dims[1], 
+    outer_d = abax_tube_dims[0], 
+    magnet_size = magnet_size
+    );
 
+// rotate([0,90,0])
+// translate([0,0,-12])
 // tube_floor(
 //     chamber_length = abax_tube_dims[2],
 //     inner_d1 = abax_tube_dims[0]-2*abax_tube_dims[1],

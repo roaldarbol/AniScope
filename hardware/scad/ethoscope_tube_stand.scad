@@ -83,6 +83,7 @@ module horizontal_tube_rack(
     space_above = 5;
     beam_width = beam_width + 0.2;
     rack_width = (4*wall_thick)+ring_diam;
+    echo(rack_width);
     rack_height = space_above+tube_diam/2;
     end_space = 2 * (beam_width+wall_thick);
     
@@ -117,7 +118,7 @@ module horizontal_tube_rack(
             }
 
             // Inserts for magnets
-            #translate([0,-(rack_length-tube_diam)/2+shift,-rack_height/2+magnet_size[1]-1])
+            translate([0,-(rack_length-tube_diam)/2+shift,-rack_height/2+magnet_size[1]-1])
             for (i=[0:1:n_tubes-1]){
                 translate([0,i*(tube_diam+min_space_between),0])
                 cylinder(d=magnet_size[0], h=magnet_size[1]+0.5);

@@ -1,6 +1,6 @@
 use <misc.scad>;
 use <ethoscope_top.scad>;
-use <ethoscope_cam.scad>;
+use <ethoscope_xmount.scad>;
 use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
@@ -8,38 +8,55 @@ use <ethoscope_tube_plug.scad>;
 
 $fn = $preview ? 60 : 200;
 
-// General
-wall_thick = 3;
-primary_bolt = 3;
-secondary_bolt = 2;
-makerbeam = 10.2;
-magnet_size = [6.2,3]; // diameter, height
-wellplate_dims = [127.63,85.47,2]; 
-target_diam = 7;
+/* [Assembly] */
+// Which part to render?
+Render = "base"; // [base: Base, arena_blank: Arena (blank), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter]
 
-// Dimensions
+/* [General] */
+Wall_thickness = 3; 
+// Which T-slots are used?
+makerbeam = 10.2; // [10.2: Makerbeam, 15.2: MakerbeamXL]
+// Magnet size (diameter, height)
+magnet_size = [6.2,3];
+
+/* [Dimensions] */
+// Ethoscope dimensions (length, width, height)
 dims = [160,160,15]; //normal length
-magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+wall_thick];
-central_magnet_dims = [50,50,magnet_size[1]*2+wall_thick];
 light_chamber_dims = [dims[0],dims[1],40];
 arena_dims = [dims[0],dims[1],3];
-chamber_dims = [100,20,20]; // [diameter, height, gap width]
+// Diameter, height, gap width
+chamber_dims = [100,20,20]; 
+// Dimensions, wellplate (length, width, height)
+Wellplate_dimensions = [127.63,85.47,2]; 
+// Dimensions, tubes (diameter, length)
 tube_dims = [20.5, 130]; // [diameter, length]
-abax_tube_dims = [30, 2, 100]; // [diameter, thickness, length]
+// Dimensions, Abax tubes (outer diameter, thickness, length)
+abax_tube_dims = [30, 2, 100]; 
 
-// Camera specs
-cam_dims = [50, 50]; // USB: [40,40] - RPi: [30, 25]
-lens_diam = 25; // lens hole diameter
+/* [Camera specs] */
+// Number of cameras
+Number_of_cameras = 1; // [1:1:2]
+// Type of camera
+Camera_type = "usb"; // [usb: USB, rpi: Raspberry Pi]
+// Standoff positions
 standoff_dims = [34,34,10]; // USB: [34,34,10] - RPi: [21,13.5,6];
 usb_hole_distances = [21,13.5]; // USB: [28,28] - RPi: [21,13.5];
-usb_hole_positions = get_points(usb_hole_distances);
+Camera_screw = 2; // Bolt used to attach cameras
 
+/* [Misc] */
 // NeoPixel diffuser
 lid_thickness = 10;
-
-// Missc for visualization
+// Misc for visualization
 beam_height = 300;
+// Target diameter
+target_diam = 7;
 
+/* [Hidden] */
+magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+Wall_thickness];
+central_magnet_dims = [50,50,magnet_size[1]*2+Wall_thickness];
+cam_dims = [50, 50]; // Size of the mount
+primary_bolt = 3; // Bolt used in MakerBeams
+usb_hole_positions = get_points(usb_hole_distances);
 
 // ======= Full models ======== //
 
@@ -71,7 +88,7 @@ beam_height = 300;
 //    dims = dims, 
 //    magnet_dims = magnet_dims, 
 //    makerbeam = makerbeam, 
-//    wall_thick = 5, 
+//    Wall_thickness = 5, 
 //    magnet_size = magnet_size, 
 //    bolt_diam = primary_bolt, 
 //    with_floor = false 
@@ -85,10 +102,10 @@ beam_height = 300;
 //ethoscope_x_mount(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    wall_thick = 6, 
+//    Wall_thickness = 6, 
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
-//    bolt_diam = secondary_bolt,
+//    bolt_diam = Camera_screw,
 //    cam_dims = cam_dims, 
 //    lens_diam = lens_diam
 // );
@@ -99,7 +116,7 @@ beam_height = 300;
 //ethoscope_usb_cam_adapter(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    wall_thick = 3, 
+//    Wall_thickness = 3, 
 //    magnet_pos = "bottom",
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
@@ -112,7 +129,7 @@ beam_height = 300;
 //ethoscope_neopixel_adapter(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    wall_thick = 3, 
+//    Wall_thickness = 3, 
 //    magnet_pos = "bottom",
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
@@ -123,7 +140,7 @@ beam_height = 300;
 // ethoscope_neopixel_adapter_lid(
 //    lid_thickness,
 //    magnet_size,
-//    wall_thick
+//    Wall_thickness
 //);
 
 
@@ -136,7 +153,7 @@ beam_height = 300;
 //        dims = light_chamber_dims, 
 //        magnet_dims = magnet_dims, 
 //        makerbeam = makerbeam, 
-//        wall_thick = makerbeam-2, 
+//        Wall_thickness = makerbeam-2, 
 //        magnet_size = magnet_size, 
 //        bolt_diam = primary_bolt, 
 //        with_floor = true,

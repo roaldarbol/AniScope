@@ -8,8 +8,7 @@ module ethoscope_x_mount(
     magnet_size, 
     standoff_dims, 
     bolt_diam, 
-    cam_dims, 
-    lens_diam
+    cam_dims
  ) {
  
     level = -magnet_size[1]/2;

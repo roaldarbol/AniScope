@@ -9,8 +9,7 @@ module ethoscope_usb_cam_adapter(
     magnet_size, 
     standoff_dims, 
     bolt_diam, 
-    cam_dims, 
-    lens_diam,
+    cam_dims,
     usb_hole_positions  
  ) {
      

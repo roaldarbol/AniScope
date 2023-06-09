@@ -1,6 +1,5 @@
 use <misc.scad>;
 use <ethoscope_modules.scad>;
-use <ethoscope_render.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_tube_stand.scad>;
 

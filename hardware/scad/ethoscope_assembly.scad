@@ -1,47 +1,52 @@
 use <misc.scad>;
-use <ethoscope_top.scad>;
+use <ethoscope_base.scad>;
 use <ethoscope_xmount.scad>;
 use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
 use <ethoscope_tube_plug.scad>;
+function selector(item, dict) = dict[search([item], dict)[0]];
 
 $fn = $preview ? 60 : 200;
 
 /* [Assembly] */
 // Which part to render?
-Render = "base"; // [base: Base, arena_blank: Arena (blank), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter]
+part = "cam_adapter"; // [base: Base, arena_blank: Arena (blank), arena_spacer: Arena (spacer), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug]
 
 /* [General] */
-Wall_thickness = 3; 
+// Ethoscope dimensions (length, width, height)
+dims = [160,160,15]; //normal length
+wall_thick = 3; 
 // Which T-slots are used?
 makerbeam = 10.2; // [10.2: Makerbeam, 15.2: MakerbeamXL]
 // Magnet size (diameter, height)
-magnet_size = [6.2,3];
+magnet_size = [6,3];
 
-/* [Dimensions] */
-// Ethoscope dimensions (length, width, height)
-dims = [160,160,15]; //normal length
-light_chamber_dims = [dims[0],dims[1],40];
-arena_dims = [dims[0],dims[1],3];
-// Diameter, height, gap width
+/* [Arena dimensions] */
+// Dimensions, preference chamber (diameter, height, gap width)
 chamber_dims = [100,20,20]; 
 // Dimensions, wellplate (length, width, height)
 Wellplate_dimensions = [127.63,85.47,2]; 
-// Dimensions, tubes (diameter, length)
-tube_dims = [20.5, 130]; // [diameter, length]
-// Dimensions, Abax tubes (outer diameter, thickness, length)
-abax_tube_dims = [30, 2, 100]; 
+// Dimensions, glass tubes (outer diameter, length)
+glass_tube_dims = [20.5, 130];
 
-/* [Camera specs] */
+/* [Camera] */
 // Number of cameras
-Number_of_cameras = 1; // [1:1:2]
+n_cams = 2; // [1:1:2]
 // Type of camera
 Camera_type = "usb"; // [usb: USB, rpi: Raspberry Pi]
-// Standoff positions
-standoff_dims = [34,34,10]; // USB: [34,34,10] - RPi: [21,13.5,6];
-usb_hole_distances = [21,13.5]; // USB: [28,28] - RPi: [21,13.5];
 Camera_screw = 2; // Bolt used to attach cameras
+
+/* [Acrylic tubes] */
+// Dimensions, acrylic tubes (outer diameter, thickness, length)
+acrylic_tube_dims = [30, 2, 100]; 
+// Type of tube plug
+tube_plug = "flush"; // [flush: Flush, funnel: Funneled, with_floor: With floor, with_anchor: With anchor-point]
+// Plug: Hose connector thread (diameter)
+hose_connector_d = 10; 
+// Plug: Hose connector position
+connector_position = "end"; // [end: End of tube, side: Side of tube]
+
 
 /* [Misc] */
 // NeoPixel diffuser
@@ -52,14 +57,103 @@ beam_height = 300;
 target_diam = 7;
 
 /* [Hidden] */
-magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+Wall_thickness];
-central_magnet_dims = [50,50,magnet_size[1]*2+Wall_thickness];
-cam_dims = [50, 50]; // Size of the mount
+light_chamber_dims = [dims[0],dims[1],40];
+arena_dims = [dims[0],dims[1],3];
+magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+wall_thick];
+adapter_magnet_dims = [50,50,magnet_size[1]*2+wall_thick]; // Size of the mount
 primary_bolt = 3; // Bolt used in MakerBeams
-usb_hole_positions = get_points(usb_hole_distances);
+usb_hole_distances = [
+    ["rpi", [21,13.5]],
+    ["usb", [28,28]]
+]; // USB: [28,28] - RPi: [21,13.5];
+adapter_hole_positions = selector(Camera_type, usb_hole_distances);
+usb_hole_positions = get_points(adapter_hole_positions[1]);
+
+// Hidden tube params
+// Parameters: [with_funnel, with_floor, with_anchor]
+tube_parameters = [
+    ["flush", [false,false,false]], 
+    ["funnel", [true,false,false]],
+    ["with_floor", [true,true,false]],
+    ["with_anchor", [false,false,true]]
+]; 
+// Plug: Carve out funnel?
+include_funnel = selector(tube_plug, tube_parameters)[1][0];
+echo(include_funnel);
+// Plug: Include space for floor (only works with funnel)
+include_floor = selector(tube_plug, tube_parameters)[1][1];
+// Plug: Include space for floor (only works with funnel)
+include_anchor = selector(tube_plug, tube_parameters)[1][2];
 
 // ======= Full models ======== //
+print_part();
+module print_part() {
+    // Base without floor
+	if (part == "base") {
+        ethoscope_base(
+            dims = light_chamber_dims, 
+            magnet_dims = magnet_dims, 
+            makerbeam = makerbeam, 
+            wall_thick = makerbeam-2, 
+            magnet_size = magnet_size, 
+            bolt_diam = primary_bolt, 
+            with_floor = true,
+            with_led=true,
+            floor_thick = 2
+        );
+	} else if (part == "arena_blank") {
 
+    } else if (part == "arena_spacer") {
+        arena_spacer(
+            dims = arena_dims, 
+            magnet_dims = magnet_dims,
+            magnet_size = magnet_size, 
+            makerbeam = makerbeam,
+            corner_height = 20
+        );	
+	} else if (part == "arena_tubes") {
+		arena_tubes(
+            dims = arena_dims, 
+            magnet_dims = magnet_dims, 
+            magnet_size = magnet_size, 
+            tube_dims = acrylic_tube_dims,
+            makerbeam = makerbeam
+        );
+    } else if (part == "arena_wellplate") {
+    } else if (part == "x_mount") {
+        ethoscope_x_mount(
+            dims = magnet_dims,
+            makerbeam = makerbeam,
+            wall_thick = 6, 
+            magnet_size = magnet_size,
+            adapter_magnet_dims = adapter_magnet_dims
+        );
+    } else if (part == "cam_adapter") {
+        ethoscope_usb_cam_adapter(
+            n_cams = n_cams,
+            dims = magnet_dims,
+            makerbeam = makerbeam,
+            wall_thick = 3, 
+            magnet_pos = "bottom",
+            magnet_size = magnet_size,
+            bolt_diam = 2.5,
+            adapter_magnet_dims = adapter_magnet_dims,
+            usb_hole_positions = usb_hole_positions
+            );
+	} else if (part=="tube_plug") {
+        tube_plug(
+            connector_position = connector_position, 
+            include_floor = include_floor,
+            include_funnel = include_funnel,
+            include_anchor = include_anchor,
+            inner_d = acrylic_tube_dims[0]-2*acrylic_tube_dims[1], 
+            outer_d = acrylic_tube_dims[0], 
+            o_ring_d = 2,
+            magnet_size = magnet_size,
+            hose_connector_d = hose_connector_d
+        );
+    }
+}
 // sleep_preference_module($fn = 200);
 
 // arena_sleep_preference(
@@ -71,28 +165,7 @@ usb_hole_positions = get_points(usb_hole_distances);
 // );
 
 
-//arena_spacer(
-//    dims = arena_dims, 
-//    magnet_dims = magnet_dims,
-//    magnet_size = magnet_size, 
-//    makerbeam = makerbeam,
-//    corner_height = 20
-//    );
-    
 
-////// Top
-//color([0.3,0.3,0.3])
-//translate([0,0,beam_height])
-//rotate([180,0,0])
-//ethoscope_end(
-//    dims = dims, 
-//    magnet_dims = magnet_dims, 
-//    makerbeam = makerbeam, 
-//    Wall_thickness = 5, 
-//    magnet_size = magnet_size, 
-//    bolt_diam = primary_bolt, 
-//    with_floor = false 
-//);
 
 
 // Camera mount
@@ -102,11 +175,11 @@ usb_hole_positions = get_points(usb_hole_distances);
 //ethoscope_x_mount(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    Wall_thickness = 6, 
+//    wall_thick = 6, 
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
 //    bolt_diam = Camera_screw,
-//    cam_dims = cam_dims, 
+//    adapter_magnet_dims = adapter_magnet_dims, 
 //    lens_diam = lens_diam
 // );
  
@@ -116,12 +189,12 @@ usb_hole_positions = get_points(usb_hole_distances);
 //ethoscope_usb_cam_adapter(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    Wall_thickness = 3, 
+//    wall_thick = 3, 
 //    magnet_pos = "bottom",
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
 //    bolt_diam = 2.5,
-//    cam_dims = cam_dims, 
+//    adapter_magnet_dims = adapter_magnet_dims, 
 //    lens_diam = lens_diam,
 //    usb_hole_positions = usb_hole_positions
 // );
@@ -129,7 +202,7 @@ usb_hole_positions = get_points(usb_hole_distances);
 //ethoscope_neopixel_adapter(
 //    dims = magnet_dims,
 //    makerbeam = makerbeam,
-//    Wall_thickness = 3, 
+//    wall_thick = 3, 
 //    magnet_pos = "bottom",
 //    magnet_size = magnet_size, 
 //    standoff_dims = central_magnet_dims, 
@@ -140,7 +213,7 @@ usb_hole_positions = get_points(usb_hole_distances);
 // ethoscope_neopixel_adapter_lid(
 //    lid_thickness,
 //    magnet_size,
-//    Wall_thickness
+//    wall_thick
 //);
 
 
@@ -153,7 +226,7 @@ usb_hole_positions = get_points(usb_hole_distances);
 //        dims = light_chamber_dims, 
 //        magnet_dims = magnet_dims, 
 //        makerbeam = makerbeam, 
-//        Wall_thickness = makerbeam-2, 
+//        wall_thick = makerbeam-2, 
 //        magnet_size = magnet_size, 
 //        bolt_diam = primary_bolt, 
 //        with_floor = true,
@@ -193,7 +266,7 @@ usb_hole_positions = get_points(usb_hole_distances);
 //    dims = arena_dims, 
 //    magnet_dims = magnet_dims, 
 //    magnet_size = magnet_size, 
-//    tube_dims = abax_tube_dims,
+//    tube_dims = acrylic_tube_dims,
 //    makerbeam = makerbeam
 // );
 //
@@ -212,19 +285,19 @@ usb_hole_positions = get_points(usb_hole_distances);
 //}
 
 // Tube inserts
-// translate([abax_tube_dims[2]/2,0,0])
+// translate([acrylic_tube_dims[2]/2,0,0])
 // rotate([0,-90,0])
-tube_plug(
-    hose_on_side = false, 
-    inner_d = abax_tube_dims[0]-2*abax_tube_dims[1], 
-    outer_d = abax_tube_dims[0], 
-    magnet_size = magnet_size
-    );
+// tube_plug(
+//     hose_on_side = false, 
+//     inner_d = acrylic_tube_dims[0]-2*acrylic_tube_dims[1], 
+//     outer_d = acrylic_tube_dims[0], 
+//     magnet_size = magnet_size
+//     );
 
 // rotate([0,90,0])
 // translate([0,0,-12])
 // tube_floor(
-//     chamber_length = abax_tube_dims[2],
-//     inner_d1 = abax_tube_dims[0]-2*abax_tube_dims[1],
-//     inner_d2 = abax_tube_dims[0]-2*abax_tube_dims[1]
+//     chamber_length = acrylic_tube_dims[2],
+//     inner_d1 = acrylic_tube_dims[0]-2*acrylic_tube_dims[1],
+//     inner_d2 = acrylic_tube_dims[0]-2*acrylic_tube_dims[1]
 //     );

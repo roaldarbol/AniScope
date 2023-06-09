@@ -12,6 +12,7 @@ module wall(
 ){
     extra = 1;
     inner_dims = dims + [-2*wall_thick,-2*wall_thick,1];
+    dims_negative = dims + [1,1,0];
     hole_width = 5;
     n_holes = [floor((dims[0]) / (hole_width*2)),
                floor((dims[1]) / (hole_width*2))];
@@ -22,9 +23,9 @@ module wall(
             translate([0,0,floor_thick])
             rounded_cube(inner_dims, 2);
             translate([0,0,dims[2]-10])
-            rounded_cube(dims, 2);
+            rounded_cube(dims_negative, 2);
         } else {
-        rounded_cube(inner_dims, 2);
+            rounded_cube(inner_dims, 2);
         }
         if (with_led==true){
             translate([0,0,-dims[2]/4])
@@ -34,7 +35,7 @@ module wall(
                     translate([i*(dims[0]-1.5*wall_thick)/2,0,0]){
                         cube([wall_thick,dims[1]-20,14], center=true);
                         translate([0,i*(dims[1]-50)/2,4])
-                        #cube([wall_thick*2,9,19], center=true);
+                        cube([wall_thick*2,9,19], center=true);
                     }
                 }
             }
@@ -57,9 +58,10 @@ module corners_hollow(dims, makerbeam, bolt_diam){
 }
 
 module magnets(dims, magnet_size, wall_thick){
+    magnet_size_corrected = [magnet_size[0]+0.4, magnet_size[1]+0.2];
     for (i=[-1:2:1]) {
-        translate([dims[0]/2,i*dims[1]/2,-(magnet_size[1])])
-        cylinder(d=magnet_size[0], h=magnet_size[1]);
+        translate([dims[0]/2,i*dims[1]/2,-(magnet_size_corrected[1])])
+        cylinder(d=magnet_size_corrected[0], h=magnet_size_corrected[1]);
     }
 }
 

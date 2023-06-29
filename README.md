@@ -1,5 +1,5 @@
-# Ethoscope
-An alternative modular ethoscope. 
+# AniScope
+A modular ethoscope. 
 
 # Quick start
 

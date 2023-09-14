@@ -5,13 +5,14 @@ use <ethoscope_arenas.scad>;
 use <ethoscope_arena_empty.scad>;
 use <ethoscope_adapters.scad>;
 use <ethoscope_tube_plug.scad>;
+use <tube_insert.scad>;
 function selector(item, dict) = dict[search([item], dict)[0]];
 
 $fn = $preview ? 60 : 200;
 
 /* [Assembly] */
 // Which part to render?
-part = "cam_adapter"; // [base: Base, arena_blank: Arena (blank), arena_spacer: Arena (spacer), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug]
+part = "cam_adapter"; // [base: Base, arena_blank: Arena (blank), arena_spacer: Arena (spacer), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug, tube_floor: Tube floor, tube_insert: Tube insert]
 
 /* [General] */
 // Ethoscope dimensions (length, width, height)
@@ -40,6 +41,8 @@ Camera_screw = 2; // Bolt used to attach cameras
 /* [Acrylic tubes] */
 // Dimensions, acrylic tubes (outer diameter, thickness, length)
 acrylic_tube_dims = [30, 2, 100]; 
+// O-ring diameter
+o_ring_diam = 2.5;
 // Type of tube plug
 tube_plug = "flush"; // [flush: Flush, funnel: Funneled, with_floor: With floor, with_anchor: With anchor-point]
 // Plug: Hose connector thread (diameter)
@@ -79,7 +82,6 @@ tube_parameters = [
 ]; 
 // Plug: Carve out funnel?
 include_funnel = selector(tube_plug, tube_parameters)[1][0];
-echo(include_funnel);
 // Plug: Include space for floor (only works with funnel)
 include_floor = selector(tube_plug, tube_parameters)[1][1];
 // Plug: Include space for floor (only works with funnel)
@@ -148,9 +150,20 @@ module print_part() {
             include_anchor = include_anchor,
             inner_d = acrylic_tube_dims[0]-2*acrylic_tube_dims[1], 
             outer_d = acrylic_tube_dims[0], 
-            o_ring_d = 2,
+            o_ring_d = o_ring_diam,
             magnet_size = magnet_size,
             hose_connector_d = hose_connector_d
+        );
+    } else if (part=="tube_floor") {
+        tube_floor(
+            chamber_length = acrylic_tube_dims[2],
+            inner_d1 = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1],
+            inner_d2 = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1]
+        );
+    } else if (part== "tube_insert") {
+        tube_insert(
+            chamber_length = acrylic_tube_dims[2],
+            inner_d = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1]
         );
     }
 }

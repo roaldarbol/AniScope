@@ -1,3 +1,4 @@
+use <ethoscope_modules.scad>;
 // outer_d1 = 30;
 // outer_d2 = 27.5;
 // inner_d1 = outer_d1 - 2.5;
@@ -35,7 +36,8 @@ module tube_plug(
     h_inner = 10;
     air_duct_d = 3;
     hose_connector_inner_d = hose_connector_d - 0.2;
-    inner_d = inner_d - 1;
+    inner_d = inner_d - 0.1;
+    magnet_size_corrected = magnet_size_correct(magnet_size);
 
     
     difference(){
@@ -68,7 +70,7 @@ module tube_plug(
                     // Magnet
                     rotate([0,90,0])
                     translate([-h/2,0,-outer_d/2])
-                    cylinder(d=magnet_size[0], h=magnet_size[1]);   
+                    cylinder(d=magnet_size_corrected[0], h=magnet_size_corrected[1]);   
 
                     // Airhole
                     translate([0,0,-air_duct_d/2])
@@ -104,7 +106,7 @@ module tube_plug(
                     // Magnet
                     rotate([0,90,0])
                     translate([-h/2,0,-outer_d/2])
-                    cylinder(d=magnet_size[0], h=magnet_size[1]);   
+                    cylinder(d=magnet_size_corrected[0], h=magnet_size_corrected[1]);   
                 }
             }
 
@@ -124,7 +126,7 @@ module tube_plug(
                     // Attachment points
                     for (i=[-90,0,90]){
                         rotate([0,0,i])
-                        translate([1/2*inner_d-2.5,0,0])
+                        translate([1/2*inner_d-2*o_ring_d,0,0])
                         cylinder(h=h_inner+1, d=5);
                     }
                     
@@ -144,28 +146,33 @@ module tube_plug(
         // Create anchor-point
         if(include_anchor==true){
             translate([0,-inner_d/4,h+h_inner])
-            cube([4,4,11], center=true);
+            cube([8,2,11], center=true);
         }
         
         // O-ring
-        translate([0,0,h+(h_inner/2)])
-        rotate_extrude(){
-            translate([inner_d/2-o_ring_d/4,0,0])
-            hull(){
-                circle(d=o_ring_d);
-                translate([3,0,0])
-                circle(d=o_ring_d);
+        for (i=[1.5,3.5]){
+            translate([0,0,h+i*(h_inner/5)])
+            rotate_extrude(){
+                translate([inner_d/2-o_ring_d/4-0.2,0,0])
+                hull(){
+                    circle(d=o_ring_d);
+                    translate([3,0,0])
+                    circle(d=o_ring_d);
+                }
+                // circle(d=o_ring_d);
             }
-            // circle(d=o_ring_d);
         }
-        // O-ring
-        // #translate([0,0,h+(h_inner/2)])
-        // rotate_extrude(){
-        //     translate([inner_d/2-o_ring_d/4,0,0])
-        //     circle(d=o_ring_d);
-        //     // circle(d=o_ring_d);
-        // }
     }
+
+    // O-ring
+    // %for (i=[1.5,3.5]){
+    //     translate([0,0,h+i*(h_inner/5)])
+    //     rotate_extrude(){
+    //         translate([inner_d/2-o_ring_d/4-0.2,0,0])
+    //         circle(d=o_ring_d);
+    //         // circle(d=o_ring_d);
+    //     }
+    // }
     
 }
 

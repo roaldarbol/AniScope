@@ -1,0 +1,6 @@
+bin
+node_modules
+prusa
+
+# MacOS
+**/.DS_Store

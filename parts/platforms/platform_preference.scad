@@ -1,15 +1,15 @@
-use <arena_empty.scad>;
+use <platform_empty.scad>;
 
-module arena_sleep_preference(
+module platform_sleep_preference(
     dims,
     magnet_dims,
     magnet_size,
     makerbeam
 ) {
     union(){
-        // Arena base
+        // platform base
         difference(){
-            arena_empty(
+            platform_empty(
                 dims = dims, 
                 magnet_dims = magnet_dims,
                 magnet_size = magnet_size, 

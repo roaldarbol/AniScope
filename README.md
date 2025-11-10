@@ -25,7 +25,7 @@ Due to its modular design, AniScope is easy to modify:
     - *From Github: click `Code`->`Download Zip`*
     - *From command line: `git clone https://github.com/roaldarbol/AniScope.git`*
 3. Open OpenSCAD
-4. Open `hardware/scad/aniscope_assembly.scad`
+4. Open `aniscope.scad`
 5. Enable the Customizer
     - `Window` -> `Customizer`
 6. For the best experience, change `Show description`to `Description only`. 

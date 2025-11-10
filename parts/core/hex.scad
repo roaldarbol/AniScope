@@ -56,19 +56,11 @@ module hex_floor(
     dims,
     hole_diameter,
     hole_spacing
-){
-
-    difference(){
-        cube(dims, center=true);
-        cube(dims+[-5,-5,2], center=true);
-    }
-    
+){  
     translate([-dims[0]/2,-dims[1]/2,-dims[2]/2])
     intersection(){
         cube(dims);
-        rotate([90,0,0])
-        translate([0,0,-dims[1]])
-        #hex_grid(dims, hole_diameter, hole_spacing);
+        hex_grid(dims, hole_diameter, hole_spacing);
     }
     
 }

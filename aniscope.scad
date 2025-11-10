@@ -4,9 +4,10 @@
 
 use <parts/core/core.scad>;
 use <parts/adapters/adapters.scad>;
-use <parts/arenas/arenas.scad>;
+use <parts/platforms/platforms.scad>;
 use <parts/frame/frame.scad>;
-use <parts/other/tube_fittings.scad>;
+use <parts/frame/platform_adapter.scad>;
+use <parts/misc/misc.scad>;
 
 
 // -------------------------------- //
@@ -17,7 +18,9 @@ $fn = $preview ? 60 : 60;
 
 /* [Assembly] */
 // Which part to render?
-part = "cam_adapter"; // [frame: Frame, arena_blank: Arena (blank), arena_spacer: Arena (spacer), arena_tubes: Arena (tubes), arena_wellplate: Arena (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug, tube_floor: Tube floor, tube_insert: Tube insert]
+part = "cam_adapter"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_wellplate: Platform (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug, tube_floor: Tube floor]
+
+// What is a tube insert?
 
 /* [Frame] */
 // Ethoscope dimensions (length, width, height)
@@ -28,12 +31,13 @@ wall_thick = 8;
 makerbeam = 10.2; // [10.2: Makerbeam, 15.2: MakerbeamXL]
 // Magnet size (diameter, height)
 magnet_size = [6,3];
+magnet_size_corrected = magnet_size_correct(magnet_size);
 
-/* [Arena dimensions] */
+/* [Platform dimensions] */
 // Dimensions, preference chamber (diameter, height, gap width)
 chamber_dims = [100,20,20]; 
 // Dimensions, wellplate (length, width, height)
-wellplate_dimensions = [127.63,85.47,2]; 
+wellplate_dims = [127.63,85.47,2]; 
 // Dimensions, glass tubes (outer diameter, length)
 glass_tube_dims = [20.5, 130];
 
@@ -48,7 +52,8 @@ Camera_screw = 2; // Bolt used to attach cameras
 // Dimensions, acrylic tubes (outer diameter, thickness, length)
 acrylic_tube_dims = [30, 2, 100]; 
 // O-ring diameter
-o_ring_diam = 2.5;
+o_ring_diam = 2.5; // Diameter of the O-ring
+o_ring_dims = [acrylic_tube_dims[0], o_ring_diam];
 // Type of tube plug
 tube_plug = "flush"; // [flush: Flush, funnel: Funneled, with_floor: With floor, with_anchor: With anchor-point]
 // Plug: Hose connector thread (diameter)
@@ -66,11 +71,11 @@ beam_height = 300;
 target_diam = 7;
 
 /* [Hidden] */
-corner_height = 20;
 light_chamber_dims = [dims[0],dims[1],40];
-arena_dims = [dims[0],dims[1],3];
-magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+wall_thick];
-adapter_magnet_dims = [50,50,magnet_size[1]*2+wall_thick]; // Size of the mount
+platform_dims = [dims[0],dims[1],3];
+magnet_dims = [dims[0]-25,dims[1],magnet_size_corrected[1]];
+x_mount_dims = [dims[0]-25,dims[1], magnet_size_corrected[1]*2 + wall_thick/2];
+adapter_magnet_dims = [50,50,magnet_size_corrected[1]*2+wall_thick]; // Size of the mount
 primary_bolt = 3; // Bolt used in MakerBeams
 usb_hole_distances = [
     ["rpi", [21,13.5]],
@@ -78,7 +83,6 @@ usb_hole_distances = [
 ]; // USB: [28,28] - RPi: [21,13.5];
 adapter_hole_positions = selector(Camera_type, usb_hole_distances);
 pos_holes = get_points(adapter_hole_positions[1]);
-magnet_size_corrected = magnet_size_correct(magnet_size);
 
 // Hidden tube params
 // Parameters: [with_funnel, with_floor, with_anchor]
@@ -109,49 +113,77 @@ module print_part() {
             dims = dims, 
             magnet_pos = magnet_dims, 
             makerbeam = makerbeam, 
+            wall_type = "hex",
             wall_thick = wall_thick, 
             magnet_size = magnet_size_corrected, 
-            bolt_diam = primary_bolt, 
-            floor_type = "hex",
+            bolt_diam = primary_bolt,
             with_led=true,
-            floor_thick = 2
+            with_floor=true,
+            floor_type = "hex",
+            floor_thick = 2,
+            adapter_magnet_dims = adapter_magnet_dims
         );
-	} else if (part == "arena_blank") {
-        arena_empty(
-            dims = arena_dims, 
+    } else if (part == "platform_adapter") {
+        platform_adapter(
+            dims = dims, 
+            magnet_pos = magnet_dims, 
+            makerbeam = makerbeam, 
+            wall_type = "hex",
+            wall_thick = wall_thick, 
+            magnet_size = magnet_size_corrected, 
+            bolt_diam = primary_bolt,
+            adapter_magnet_dims = adapter_magnet_dims
+        );
+	} else if (part == "platform_mount") {
+        platform_mount(
+            makerbeam = makerbeam,
+            magnet_size = magnet_size_corrected,
+            wall_thick = 3,
+            bolt_diam = primary_bolt
+        );
+    } else if (part == "platform_empty") {
+        platform_empty(
+            dims = platform_dims, 
             magnet_dims = magnet_dims,
             magnet_size = magnet_size_corrected,
             makerbeam = makerbeam,
-            corner_height = corner_height,
             top_magnets = false
         );
-    } else if (part == "arena_spacer") {
-        arena_spacer(
-            dims = arena_dims, 
+	} else if (part == "platform_empty") {
+        platform_diffuser(
+            dims = platform_dims, 
             magnet_dims = magnet_dims,
-            magnet_size = magnet_size_corrected, 
+            magnet_size = magnet_size_corrected,
             makerbeam = makerbeam,
-            corner_height = 20
-        );	
-	} else if (part == "arena_tubes") {
-		arena_tubes(
-            dims = arena_dims, 
+            top_magnets = false
+        );
+	} else if (part == "platform_tubes") {
+		platform_tubes(
+            dims = platform_dims, 
             magnet_dims = magnet_dims, 
             magnet_size = magnet_size_corrected, 
             tube_dims = acrylic_tube_dims,
+            o_ring_dims = o_ring_dims,
             makerbeam = makerbeam
         );
-    } else if (part == "arena_wellplate") {
+    } else if (part == "platform_wellplate") {
+        platform_wellplate(
+            dims = platform_dims, 
+            magnet_dims = magnet_dims, 
+            wellplate_dims = wellplate_dims,
+            magnet_size = magnet_size_corrected, 
+            makerbeam = makerbeam
+        );
     } else if (part == "x_mount") {
         x_mount(
-            dims = magnet_dims,
+            dims = x_mount_dims,
             makerbeam = makerbeam,
             wall_thick = 6, 
             magnet_size = magnet_size_corrected,
             adapter_magnet_dims = adapter_magnet_dims
         );
     } else if (part == "cam_adapter") {
-        adapter_camera(
+        adapter_usb_cam(
             n_cams = n_cams,
             dims = magnet_dims,
             makerbeam = makerbeam,
@@ -180,17 +212,12 @@ module print_part() {
             inner_d1 = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1],
             inner_d2 = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1]
         );
-    } else if (part== "tube_insert") {
-        tube_insert(
-            chamber_length = acrylic_tube_dims[2],
-            inner_d = acrylic_tube_dims[0] - 2 * acrylic_tube_dims[1]
-        );
     }
 }
 // sleep_preference_module($fn = 200);
 
-// arena_sleep_preference(
-//    dims = arena_dims,
+// platform_sleep_preference(
+//    dims = platform_dims,
 //    magnet_dims = magnet_dims,
 //    magnet_size = magnet_size,
 //    makerbeam = makerbeam,
@@ -279,24 +306,24 @@ module print_part() {
     
 
 
-//// Arena
+//// platform
 //translate([0,0,light_chamber_dims[2]+5])
 //color([1,1,1])
-//arena_empty(
-//    dims = arena_dims, 
+//platform_empty(
+//    dims = platform_dims, 
 //    magnet_dims = magnet_dims,
 //    magnet_size = magnet_size, 
 //    makerbeam = makerbeam
 //);
-////!arena_metabolic_chamber(
-////    dims = arena_dims, 
+////!platform_metabolic_chamber(
+////    dims = platform_dims, 
 ////    magnet_dims = magnet_dims, 
 ////    chamber_dims = chamber_dims,
 ////    magnet_size = magnet_size, 
 ////    makerbeam = makerbeam
 ////);
-// arena_tubes(
-//    dims = arena_dims, 
+// platform_tubes(
+//    dims = platform_dims, 
 //    magnet_dims = magnet_dims, 
 //    magnet_size = magnet_size, 
 //    tube_dims = acrylic_tube_dims,

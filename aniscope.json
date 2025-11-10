@@ -3,17 +3,12 @@
     "parameterSets": {
         "Abax": "",
         "Nebria": "",
-        "New set 1": "",
-        "Glow worms": "",
-        "New set 2": "",
-        "New set 3": "",
-        "New set 4": "",
-        "New set 5": "",
-        "New set 6": "",
-        "New set 7": "",
-        "New set 8": {
+        "Glow worms": {
+            "part": "platform_mount"
+        },
+        "New set 1": {
             "Camera_screw": "2",
-            "Camera_type": "rpi",
+            "Camera_type": "usb",
             "acrylic_tube_dims": "[30, 2, 100]",
             "beam_height": "300",
             "chamber_dims": "[100, 20, 20]",
@@ -29,29 +24,8 @@
             "part": "frame",
             "target_diam": "7",
             "tube_plug": "flush",
-            "wall_thick": "3",
-            "wellplate_dimensions": "[127.63, 85.47, 2]"
-        },
-        "New set 9": {
-            "Camera_screw": "2",
-            "Camera_type": "usb",
-            "acrylic_tube_dims": "[30, 2, 100]",
-            "beam_height": "300",
-            "chamber_dims": "[100, 20, 20]",
-            "connector_position": "end",
-            "dims": "[160, 160, 20]",
-            "glass_tube_dims": "[20.5, 130]",
-            "hose_connector_d": "10",
-            "lid_thickness": "10",
-            "magnet_size": "[6, 3]",
-            "makerbeam": "10.199999999999999",
-            "n_cams": "2",
-            "o_ring_diam": "2.5",
-            "part": "frame",
-            "target_diam": "7",
-            "tube_plug": "flush",
-            "wall_thick": "10",
-            "wellplate_dimensions": "[127.63, 85.47, 2]"
+            "wall_thick": "8",
+            "wellplate_dims": "[127.63, 85.47, 2]"
         }
     }
 }

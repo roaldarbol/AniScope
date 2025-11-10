@@ -14,12 +14,12 @@ module wall(
 
     if (wall_type == "hex"){
         for (i = [-1,1]){
-            translate([0,i*dims[1]/2,0]) hex_wall(hex_dims_x, 10, 5);
+            translate([0,i*(wall_thick+inner_dims[1]/2),0]) hex_wall(hex_dims_x, 10, 5);
             rotate([0,0,90]) translate([0,i*dims[1]/2,0]) hex_wall(hex_dims_x, 10, 5);
         }
         difference(){
             cube(half_dims, center=true);
-            rounded_cube(half_dims, 10, outside=true);
+            rounded_cube(half_dims + [0,0,2], 15, outside=true);
         }
         
     } else if (wall_type == "full"){

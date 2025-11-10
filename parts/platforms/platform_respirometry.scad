@@ -2,9 +2,9 @@
 // ------------- Respirometry -------------- //
 // ----------------------------------------- //
 
-use <arena_empty.scad>;
+use <platform_empty.scad>;
 
-module arena_metabolic_chamber(
+module platform_metabolic_chamber(
     dims, 
     magnet_dims, 
     chamber_dims,
@@ -18,8 +18,8 @@ module arena_metabolic_chamber(
     rubber_r = 1;
     
     union(){
-        // Arena base
-        arena_empty(
+        // platform base
+        platform_empty(
             dims = dims, 
             magnet_dims = magnet_dims,
             magnet_size = magnet_size, 

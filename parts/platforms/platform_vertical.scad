@@ -1,4 +1,4 @@
-use <arena_empty.scad>;
+use <platform_empty.scad>;
 use <../core/core.scad>;
 
 $fn = 30;
@@ -17,7 +17,8 @@ target_diam = 7;
 dims = [160,160,15]; //normal length
 magnet_dims = [dims[0]-25,dims[1],magnet_size[1]*2+wall_thick];
 light_chamber_dims = [dims[0],dims[1],50];
-arena_dims = [dims[0],dims[1],2];
+platform_dims = [dims[0],dims[1],2];
+corner_height = 20;
 
 // [diameter, height, gap width]
 chamber_dims = [40,60]; // [
@@ -28,33 +29,37 @@ cam_dims = [40, 40]; // USB: [40,40] - RPi: [30, 25]
 lens_diam = 25; // lens hole diameter
 standoff_dims = [34,34,10]; // USB: [34,34,10] - RPi: [21,13.5,6];
 
-arena_metabolic_chamber_vertical(
-    arena_dims, 
+platform_metabolic_chamber_vertical(
+    platform_dims, 
     magnet_dims, 
     chamber_dims,
     magnet_size, 
-    makerbeam
+    makerbeam,
+    corner_height
 );
 
-module arena_metabolic_chamber_vertical(
+module platform_metabolic_chamber_vertical(
     dims, 
     magnet_dims, 
     chamber_dims,
     magnet_size, 
     makerbeam,
+    corner_height
 ) {
+    echo(platform_dims);
     chamber_d = chamber_dims[0]+2;
     chamber_h = chamber_dims[1];
     wall_thickness = 4;
     rubber_r = 1;
     
     union(){
-        // Arena base
-        arena_empty(
+        // platform base
+        platform_empty(
             dims = dims, 
             magnet_dims = magnet_dims,
             magnet_size = magnet_size, 
-            makerbeam = makerbeam
+            makerbeam = makerbeam,
+            corner_height = corner_height
         );
         
         // Translate other stuff on top

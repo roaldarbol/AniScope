@@ -2,10 +2,10 @@
 // ----------- Wellplate ---------- //
 // -------------------------------- //
 
-use <arena_empty.scad>;
+use <platform_empty.scad>;
 use <../core/core.scad>;
 
-module arena_wellplate(
+module platform_wellplate(
     dims, 
     magnet_dims, 
     wellplate_dims,
@@ -22,15 +22,13 @@ module arena_wellplate(
     wp_outer = [wellplate_dims[0]+2, wellplate_dims[1]+2, wellplate_dims[2]];
     difference(){
         union(){
-            // Plate base + magnet holders
-            rounded_cube(dimsA, makerbeam/2, true);
-            rounded_cube(dimsB, makerbeam/2, true);
-            translate([0,0,magnet_dims[2]/2-dims[2]/2]){
-                corners(magnet_dims, makerbeam); // Magnets
-                mirror([1,0,0]) corners(magnet_dims, makerbeam); // Magnets
-            }
+            platform_empty(dims = dims, 
+                        magnet_dims = magnet_dims,
+                        magnet_size = magnet_size,
+                        makerbeam = makerbeam);
             
             // Wellplate surround
+            rotate([0,0,90])
             difference(){
                 translate([0,0,dims[2]]) cube(wp_outer, center=true);
                 translate([0,0,dims[2]]) cube(wellplate_dims, center=true);

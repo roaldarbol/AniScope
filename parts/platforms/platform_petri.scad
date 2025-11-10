@@ -2,25 +2,25 @@
 // ---------------- Tubes ------------------ //
 // ----------------------------------------- //
 
-use <arena_empty.scad>;
+use <platform_empty.scad>;
 use <../core/core.scad>;
 
-module arena_tubes(
+module platform_petri(
     dims, 
     magnet_dims, 
     magnet_size, 
     tube_dims,
+    o_ring_dims,
     makerbeam
 ) {
     union(){
         difference(){
-            // Arena base
-            arena_empty(
+            // platform base
+            platform_empty(
                 dims = dims, 
                 magnet_dims = magnet_dims,
                 magnet_size = magnet_size, 
-                makerbeam = makerbeam,
-                corner_height=magnet_size[1]+2
+                makerbeam = makerbeam
             );
             // Remove outer edges
             removal = 20;
@@ -31,7 +31,6 @@ module arena_tubes(
         }
         
         tube_disp = (tube_dims[2]-15) / 2;
-        echo(tube_disp)
         
         translate([0,0,tube_dims[0]/4+dims[2]])
         for (i=[-1,1]){
@@ -41,6 +40,7 @@ module arena_tubes(
                 beam_width = makerbeam, 
                 rack_length = 170, 
                 magnet_size = magnet_size,
+                o_ring_dims = o_ring_dims,
                 insert = false);
         }
     }
@@ -52,6 +52,7 @@ module horizontal_tube_rack(
     beam_width, 
     rack_length, 
     magnet_size,
+    o_ring_dims,
     insert=false
 ) {
     
@@ -59,7 +60,7 @@ module horizontal_tube_rack(
     min_space_between = 3;
     space_above = 5;
     beam_width = beam_width + 0.2;
-    rack_width = (4*wall_thick)+ring_diam;
+    rack_width = (4*wall_thick)+o_ring_dims[1];
     echo(rack_width);
     rack_height = space_above+tube_diam/2;
     end_space = 2 * (beam_width+wall_thick);
@@ -78,8 +79,8 @@ module horizontal_tube_rack(
             translate([-rack_height/2,-(rack_length-tube_diam)/2+shift,0])
             for (i=[0:1:n_tubes-1]){
                 translate([0,i*(tube_diam+min_space_between),0]){
-                    cylinder(d=tube_diam, h=beam_width, center=true);
-                    o_ring(outer_diam,ring_diam);
+                    cylinder(d=tube_diam, h=beam_width+10, center=true);
+                    o_ring(o_ring_dims[0],o_ring_dims[1]);
                 }
             }
 
@@ -102,59 +103,10 @@ module horizontal_tube_rack(
             }
             
             // Standing rack
-            if (standing > 0.5){
-                end_length = 2*beam_width;
-                bolt_rad= (bolt_diameter+1)/2;
-            }
+            // if (standing > 0.5){
+            //     end_length = 2*beam_width;
+            //     bolt_rad= (bolt_diameter+1)/2;
+            // }
         }
     }
 }
-
-
-// module tube_insert(
-//     chamber_length,
-//     inner_d,
-//     min_height
-// ){
-//     inner_d = inner_d - 0.1;
-//     chamber_length = chamber_length - 2*9.5;
-//     // rotate([90,0,0])
-//     difference(){
-//         cylinder(d=inner_d, h=chamber_length, center=true);
-//         translate([5,0,0]){
-//             for (i=[-1,1]){
-//                 rotate([90,0,0])
-//                 translate([i*0.2*inner_d,i*0.2*chamber_length,0])
-//                 hull(){
-//                     cylinder(d=inner_d*0.5, h=inner_d, center=true);
-//                     translate([0,i*0.5*chamber_length,0])
-//                     cylinder(d=inner_d*0.5, h=inner_d, center=true);
-//                 }
-//             }
-//             // translate([0,5,0])
-//             hull(){
-//                 rotate([90,0,0])
-//                 translate([0.2*inner_d,0.2*chamber_length,0])
-//                 cylinder(d=inner_d*0.5, h=inner_d, center=true);
-//                 rotate([90,0,0])
-//                 translate([-0.2*inner_d,-0.2*chamber_length,0])
-//                 cylinder(d=inner_d*0.5, h=inner_d, center=true);
-//             }
-//         }
-//     }
-//     intersection() {
-//         difference(){
-//             cylinder(d=inner_d, h=chamber_length, center=true);
-//             cylinder(d=inner_d-3, h=chamber_length, center=true);
-//         }
-//         #translate([0,inner_d/2,0])
-//         hull(){
-//                 rotate([90,0,0])
-//                 translate([0.2*inner_d,-0.1*chamber_length,0])
-//                 cylinder(d=inner_d, h=inner_d, center=true);
-//                 rotate([90,0,0])
-//                 translate([-0.2*inner_d,0.1*chamber_length,0])
-//                 cylinder(d=inner_d*0.5, h=inner_d, center=true);
-//             }
-//     }
-// }

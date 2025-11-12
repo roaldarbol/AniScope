@@ -9,12 +9,24 @@ module platform_petri(
     dims, 
     magnet_dims, 
     magnet_size, 
-    tube_dims,
-    o_ring_dims,
-    makerbeam
+    makerbeam,
+    dish_dims
 ) {
-    union(){
-        difference(){
+    min_space_between = 10;
+    dish_dims_wall = dish_dims[0] + 4;
+    
+    // Number of rows and columns
+    n_rows = floor((dims[0])/(dish_dims_wall+min_space_between));
+    total_row_space = n_rows * dish_dims_wall + (n_rows + 1) * min_space_between;
+    initial_row_shift = (-dims[0] / 2) + (dish_dims_wall / 2) + min_space_between;
+
+    // Number of columns and spacing
+    n_cols = floor((dims[1])/(dish_dims_wall + min_space_between));
+    total_col_space = n_cols * dish_dims_wall + (n_cols + 1) * min_space_between;
+    initial_col_shift = (-dims[1] / 2) + (dish_dims_wall / 2) + min_space_between * 1.5;
+
+    difference(){
+        union(){
             // platform base
             platform_empty(
                 dims = dims, 
@@ -22,26 +34,23 @@ module platform_petri(
                 magnet_size = magnet_size, 
                 makerbeam = makerbeam
             );
-            // Remove outer edges
-            removal = 20;
-            translate([((dims[0]+removal/2)/2)-0.4,0,0])
-            cube([removal,dims[1],makerbeam], center=true);
-            translate([((-dims[0]-removal/2)/2)+0.4,0,0])
-            cube([removal,dims[1],makerbeam], center=true);
+            for (i = [0:1:n_rows-1]){
+                for (j = [0:1:n_cols-1]){
+                    translate([
+                        initial_row_shift + i * (dish_dims_wall + min_space_between), initial_col_shift + j * (dish_dims_wall + min_space_between),dish_dims[1] / 2]){
+                    cylinder(d = dish_dims_wall, h = dish_dims[1], center = true);
+                    }
+                }
+            }
         }
-        
-        tube_disp = (tube_dims[2]-15) / 2;
-        
-        translate([0,0,tube_dims[0]/4+dims[2]])
-        for (i=[-1,1]){
-            translate([i*tube_disp,0,0])
-            horizontal_tube_rack(
-                tube_diam = tube_dims[0], 
-                beam_width = makerbeam, 
-                rack_length = 170, 
-                magnet_size = magnet_size,
-                o_ring_dims = o_ring_dims,
-                insert = false);
+        // Remove center where the Petri dish will go
+        for (i = [0:1:n_rows-1]){
+            for (j = [0:1:n_cols-1]){
+                translate([
+                    initial_row_shift + i * (dish_dims_wall + min_space_between), initial_col_shift + j * (dish_dims_wall + min_space_between),0]){
+                cylinder(d = dish_dims[0], h = dish_dims[1]*2.5, center = true);
+                }
+            }
         }
     }
 }

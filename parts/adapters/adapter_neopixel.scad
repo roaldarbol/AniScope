@@ -66,7 +66,7 @@ module adapter_neopixel_lid(
     inner_diam = 52.2;
     
      difference(){
-         cylinder(h=height, d=outer_diam, center=true);
+         #cylinder(h=height, d=outer_diam, center=true);
          translate([0,0,0])
          cylinder(h=height, d=inner_diam, center=true);
          for (i=[0:7]){

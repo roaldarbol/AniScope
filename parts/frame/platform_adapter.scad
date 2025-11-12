@@ -12,6 +12,7 @@ module platform_adapter(
     bolt_diam, 
     adapter_magnet_dims = []
 ){
+    dims = [dims[0], dims[1], 10];
     difference(){
         union(){
             frame(
@@ -30,8 +31,9 @@ module platform_adapter(
                 rotate([0,0,i*90])
                 translate([dims[0]/2, dims[1]/2,0])
                 beam_slider(
-                    makerbeam = makerbeam,
+                    makerbeam = makerbeam+0.2,
                     wall_thick = 3,
+                    height = dims[2],
                     bolt_diam = bolt_diam
                     );
             }

@@ -18,7 +18,7 @@ $fn = $preview ? 60 : 60;
 
 /* [Assembly] */
 // Which part to render?
-part = "cam_adapter"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_wellplate: Platform (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, tube_plug: Tube plug, tube_floor: Tube floor]
+part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, adapter_neopixel: Neopixel adapter, adapter_neopixel_lid: Neopixel adapter lid, tube_plug: Tube plug, tube_floor: Tube floor]
 
 // What is a tube insert?
 
@@ -46,7 +46,12 @@ glass_tube_dims = [20.5, 130];
 n_cams = 2; // [1:1:2]
 // Type of camera
 Camera_type = "usb"; // [usb: USB, rpi: Raspberry Pi]
+// Camera bolt diameter
 Camera_screw = 2; // Bolt used to attach cameras
+// Magnet placement on adapter
+adapter_magnet_orientation = "bottom"; // [bottom: Bottom, top: Top]
+// Diameter of hole for lens (0 for no hole)
+lens_hole_diam = 0; // [0:1:30]
 
 /* [Acrylic tubes] */
 // Dimensions, acrylic tubes (outer diameter, thickness, length)
@@ -61,6 +66,9 @@ hose_connector_d = 10;
 // Plug: Hose connector position
 connector_position = "end"; // [end: End of tube, side: Side of tube]
 
+/* [Petri dishes] */
+// Dimensions of Petri dishes (diameter, height)
+petri_dish_dims = [60, 20];
 
 /* [Misc] */
 // NeoPixel diffuser
@@ -174,6 +182,14 @@ module print_part() {
             magnet_size = magnet_size_corrected, 
             makerbeam = makerbeam
         );
+    } else if (part == "platform_petri") {
+		platform_petri(
+            dims = platform_dims, 
+            magnet_dims = magnet_dims, 
+            magnet_size = magnet_size_corrected, 
+            makerbeam = makerbeam,
+            dish_dims = petri_dish_dims
+        );
     } else if (part == "x_mount") {
         x_mount(
             dims = x_mount_dims,
@@ -188,13 +204,31 @@ module print_part() {
             dims = magnet_dims,
             makerbeam = makerbeam,
             wall_thick = 3, 
-            magnet_pos = "bottom",
+            magnet_pos = adapter_magnet_orientation,
             magnet_size = magnet_size_corrected,
             bolt_diam = 2.5,
             adapter_magnet_dims = adapter_magnet_dims,
-            pos_holes = pos_holes
+            usb_hole_positions = pos_holes,
+            lens_hole_diam = lens_hole_diam
             );
-	} else if (part=="tube_plug") {
+	} else if (part=="adapter_neopixel") {
+        adapter_neopixel(
+            dims = magnet_dims,
+            makerbeam=10,
+            wall_thick=3,
+            magnet_pos="bottom",
+            magnet_size = magnet_size, 
+            adapter_magnet_dims = adapter_magnet_dims, 
+            bolt_diam = 2.5,
+            neopixel_diam = 60
+        );
+    } else if (part=="adapter_neopixel_lid") {
+        adapter_neopixel_lid(
+            lid_thickness,
+            magnet_size,
+            wall_thick
+        );
+    } else if (part=="tube_plug") {
         tube_plug(
             connector_position = connector_position, 
             include_floor = include_floor,

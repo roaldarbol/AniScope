@@ -16,7 +16,6 @@ module platform_petri(
     dish_dims = [dish_dims[0] + 0.4, dish_dims[1]];
     dish_dims_wall = dish_dims[0] + 4;
     
-    
     // Number of rows and columns
     n_rows = floor((dims[0])/(dish_dims_wall+min_space_between));
     initial_row_shift = -(n_rows - 1) * (dish_dims_wall + min_space_between) / 2;

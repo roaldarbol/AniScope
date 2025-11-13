@@ -18,7 +18,7 @@ $fn = $preview ? 60 : 60;
 
 /* [Assembly] */
 // Which part to render?
-part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, cam_adapter: Camera adapter, adapter_neopixel: Neopixel adapter, adapter_neopixel_lid: Neopixel adapter lid, tube_plug: Tube plug, tube_floor: Tube floor]
+part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, adapter_empty: Adapter empty, cam_adapter: Adapter camera, adapter_breakoutgarden: Adapter Breakout Garden, adapter_neopixel: Adapter Neopixel, adapter_neopixel_lid: Adapter Neopixel lid, tube_plug: Tube plug, tube_floor: Tube floor]
 
 // What is a tube insert?
 
@@ -157,13 +157,12 @@ module print_part() {
             makerbeam = makerbeam,
             top_magnets = false
         );
-	} else if (part == "platform_empty") {
+	} else if (part == "platform_diffuser") {
         platform_diffuser(
             dims = platform_dims, 
             magnet_dims = magnet_dims,
             magnet_size = magnet_size_corrected,
-            makerbeam = makerbeam,
-            top_magnets = false
+            makerbeam = makerbeam
         );
 	} else if (part == "platform_tubes") {
 		platform_tubes(
@@ -198,6 +197,16 @@ module print_part() {
             magnet_size = magnet_size_corrected,
             adapter_magnet_dims = adapter_magnet_dims
         );
+    } else if (part == "adapter_empty") {
+        adapter_empty(
+            n=1,
+            dims = magnet_dims,
+            makerbeam = makerbeam,
+            wall_thick = 3,
+            magnet_pos = adapter_magnet_orientation,
+            magnet_size = magnet_size_corrected, 
+            adapter_magnet_dims = adapter_magnet_dims
+        );
     } else if (part == "cam_adapter") {
         adapter_usb_cam(
             n_cams = n_cams,
@@ -211,6 +220,15 @@ module print_part() {
             usb_hole_positions = pos_holes,
             lens_hole_diam = lens_hole_diam
             );
+    } else if (part == "adapter_breakoutgarden") {
+        adapter_breakoutgarden(
+            dims = magnet_dims,
+            makerbeam = makerbeam,
+            wall_thick = 3,
+            magnet_pos = adapter_magnet_orientation,
+            magnet_size = magnet_size, 
+            adapter_magnet_dims = adapter_magnet_dims
+        );
 	} else if (part=="adapter_neopixel") {
         adapter_neopixel(
             dims = magnet_dims,

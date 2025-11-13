@@ -13,17 +13,17 @@ module platform_petri(
     dish_dims
 ) {
     min_space_between = 10;
+    dish_dims = [dish_dims[0] + 0.4, dish_dims[1]];
     dish_dims_wall = dish_dims[0] + 4;
+    
     
     // Number of rows and columns
     n_rows = floor((dims[0])/(dish_dims_wall+min_space_between));
-    total_row_space = n_rows * dish_dims_wall + (n_rows + 1) * min_space_between;
-    initial_row_shift = (-dims[0] / 2) + (dish_dims_wall / 2) + min_space_between;
+    initial_row_shift = -(n_rows - 1) * (dish_dims_wall + min_space_between) / 2;
 
     // Number of columns and spacing
     n_cols = floor((dims[1])/(dish_dims_wall + min_space_between));
-    total_col_space = n_cols * dish_dims_wall + (n_cols + 1) * min_space_between;
-    initial_col_shift = (-dims[1] / 2) + (dish_dims_wall / 2) + min_space_between * 1.5;
+    initial_col_shift = -(n_cols - 1) * (dish_dims_wall + min_space_between) / 2;
 
     difference(){
         union(){

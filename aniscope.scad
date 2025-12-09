@@ -18,7 +18,7 @@ $fn = $preview ? 60 : 60;
 
 /* [Assembly] */
 // Which part to render?
-part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, adapter_empty: Adapter empty, cam_adapter: Adapter camera, adapter_breakoutgarden: Adapter Breakout Garden, adapter_neopixel: Adapter Neopixel, adapter_neopixel_lid: Adapter Neopixel lid, tube_plug: Tube plug, tube_floor: Tube floor]
+part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, adapter_empty: Adapter empty, cam_adapter: Adapter camera, cam_adapter_elp: Adapter camera (ELP), adapter_breakoutgarden: Adapter Breakout Garden, adapter_neopixel: Adapter Neopixel, adapter_neopixel_lid: Adapter Neopixel lid, tube_plug: Tube plug, tube_floor: Tube floor]
 
 // What is a tube insert?
 
@@ -32,6 +32,8 @@ makerbeam = 10.2; // [10.2: Makerbeam, 15.2: MakerbeamXL]
 // Magnet size (diameter, height)
 magnet_size = [6,3];
 magnet_size_corrected = magnet_size_correct(magnet_size);
+// Floor type
+frame_floor_type = "none"; // [none: None, hex: Hex, x: X-mount]
 
 /* [Platform dimensions] */
 // Dimensions, preference chamber (diameter, height, gap width)
@@ -125,9 +127,7 @@ module print_part() {
             wall_thick = wall_thick, 
             magnet_size = magnet_size_corrected, 
             bolt_diam = primary_bolt,
-            with_led=true,
-            with_floor=true,
-            floor_type = "hex",
+            floor_type = frame_floor_type,
             floor_thick = 2,
             adapter_magnet_dims = adapter_magnet_dims
         );
@@ -219,6 +219,16 @@ module print_part() {
             adapter_magnet_dims = adapter_magnet_dims,
             usb_hole_positions = pos_holes,
             lens_hole_diam = lens_hole_diam
+            );
+    } else if (part == "cam_adapter_elp") {
+        adapter_usb_elp(
+            n_cams = n_cams,
+            dims = magnet_dims,
+            makerbeam = makerbeam,
+            wall_thick = 3, 
+            magnet_pos = adapter_magnet_orientation,
+            magnet_size = magnet_size_corrected,
+            adapter_magnet_dims = adapter_magnet_dims,
             );
     } else if (part == "adapter_breakoutgarden") {
         adapter_breakoutgarden(

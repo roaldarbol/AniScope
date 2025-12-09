@@ -12,7 +12,7 @@ module platform_adapter(
     bolt_diam, 
     adapter_magnet_dims = []
 ){
-    dims = [dims[0], dims[1], 10];
+    // dims = [dims[0], dims[1], 10];
     difference(){
         union(){
             frame(

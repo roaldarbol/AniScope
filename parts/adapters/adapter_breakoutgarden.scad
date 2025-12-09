@@ -9,8 +9,6 @@ module adapter_breakoutgarden(
     magnet_size, 
     adapter_magnet_dims
  ) {
-    n = 2;
-    
     // Base adapter
     adapter_empty(
         n=1,
@@ -22,7 +20,7 @@ module adapter_breakoutgarden(
         adapter_magnet_dims
     );
     height = magnet_size[1]+wall_thick;
-    board_dims = [65, 45, 3];
+    board_dims = [103, 65, 1.5];
     board_container_dims = [
         board_dims[0] + 4,
         board_dims[1] + 4,
@@ -39,10 +37,7 @@ module adapter_breakoutgarden(
         
             // Center cutout
             translate([2.5,0,0])
-            rounded_cube([board_dims[0]+5, board_dims[1]-5, board_container_dims[2]*1.1], radius = 0.1);
+            rounded_cube([board_dims[0]+5, board_dims[1]-10, board_container_dims[2]*1.1], radius = 0.1);
         }
-
-
-
     } 
  }

@@ -11,6 +11,10 @@
   <b>A modular ethoscope for customised behavioural experiments with tiny animals.</b><br>
 </p>
 
+# Introduction
+
+The AniScope is a modular, 3D-printed imaging arena for tracking small animals (insects, spiders, larvae, etc.). It provides uniform infrared backlighting, adjustable diffusion, and a stable camera mount—all in a compact, customisable package.
+
 # Features
 Due to its modular design, AniScope is easy to modify:
 

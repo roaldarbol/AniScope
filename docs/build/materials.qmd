@@ -1,0 +1,62 @@
+# Bill of Materials
+
+Gather all of the following before you begin. Links are provided for reference; equivalent parts from other suppliers will work.
+
+```{r}
+#| echo: false
+library(gt)
+
+tibble::tribble(
+  ~Category, ~Item, ~Quantity, ~Source, ~Price, ~Notes,
+  
+  # 3D Printing
+  "3D Printing", "3D printer", "1", NA, NA, "Any FDM printer with ≥15 cm build plate",
+  "3D Printing", "PLA/PETG filament", "~Xg", NA, NA, "Colour of your choice",
+  
+  # Structural Components
+  "Structural Components", "MakerBeam 30 cm", "4", "[Link](#)", "€X", NA,
+  "Structural Components", "MakerBeam tapered bolts", "4", "[Link](#)", "€X", NA,
+  "Structural Components", "MakerBeam standard bolts", "8", "[Link](#)", "€X", NA,
+  "Structural Components", "MakerBeam nuts", "X", "[Link](#)", "€X", NA,
+  
+  # Lighting
+  "Lighting", "IR LED strip", "1 roll", NA, NA, "850 nm or 940 nm; need 40 cm total",
+  "Lighting", "End click connector", "1", NA, NA, "Must match strip width",
+  "Lighting", "Corner click connectors", "3", NA, NA, "Must match strip width",
+  "Lighting", "12V power supply", "1", NA, NA, "For LED strips",
+  
+  # Assembly Supplies
+  "Assembly Supplies", "Neodymium magnets (Ø6 x 2 mm)", "X", NA, NA, "Quantity depends on configuration",
+  "Assembly Supplies", "Superglue (cyanoacrylate)", "1", NA, NA, "Gorilla Glue or similar",
+  "Assembly Supplies", "Diffuser fabric", "1 piece", NA, NA, "White ripstop nylon or similar; ~20 x 15 cm",
+  "Assembly Supplies", "Small cable ties", "~10", NA, NA, "For cable management",
+  "Assembly Supplies", "Disposable gloves", "1 pair", NA, NA, "Nitrile or latex",
+  "Assembly Supplies", "Paper towels", "A few sheets", NA, NA, "For wiping excess glue",
+  "Assembly Supplies", "Stanley knife / scissors", "1", NA, NA, "For cutting LED strips and fabric"
+) |>
+  gt(groupname_col = "Category") |>
+  fmt_markdown(columns = c(Item, Source)) |>
+  sub_missing(missing_text = "") |>
+  cols_label(
+    Item = "Item",
+    Quantity = "Quantity",
+    Source = "Source",
+    Price = "Approx. Price",
+    Notes = "Notes"
+  ) |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#f5f5f5"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_row_groups()
+  ) |>
+  tab_style(
+    style = cell_borders(sides = "bottom", color = "#d3d3d3", weight = px(1)),
+    locations = cells_body()
+  ) |>
+  tab_options(
+    table.width = pct(100),
+    row_group.padding = px(10)
+  )
+```

@@ -1,0 +1,9 @@
+## Assembly
+
+
+
+## Notes and Tips
+
+- **More diffusion needed?** Add a second diffuser layer, or use a second diffuser frame with fabric at a different height.
+- **Custom arena sizes:** The design is parametric—see [link] to generate parts for different dimensions.
+- **Filament choice:** PLA works fine for most uses. PETG is more durable if you expect rough handling.

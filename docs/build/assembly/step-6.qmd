@@ -1,0 +1,12 @@
+### 6. Camera
+
+If using a **USB camera** with the X-mount top:
+
+1. Attach the camera to the printed camera mount.
+2. Slide the mount into the X-shaped slot on the top piece.
+3. Secure with magnets or bolts as appropriate for your mount design.
+
+If using a **DSLR or external camera:**
+
+1. Position your tripod over the AniScope, looking down through the open top.
+2. Adjust tripod height so the arena fills the camera's field of view.

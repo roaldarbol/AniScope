@@ -1,0 +1,33 @@
+### 1. Magnets
+
+> **Warning:** Superglue bonds skin instantly. Wear gloves throughout this step, and have paper towels within reach to wipe up excess glue immediately.
+
+> **Read this entire step before starting.** Once glue is applied, you have only a few seconds to position the magnet.
+
+#### Decide on magnet polarity
+
+All magnets in **upward-facing holes** should have the same pole facing up. All magnets in **downward-facing holes** should have the opposite pole facing up. This ensures parts attach correctly later. The [**Magic Magnet Tool**](https://www.printables.com/model/442051-the-magic-magnet-tool-small-size) makes this easy by providing a tool for each.
+
+#### Install each magnet
+
+1. Place a magnet on the insertion tool (or hold carefully with gloved fingers), correct pole facing outward.
+2. Apply a small drop of superglue into the hole.
+3. Press the magnet firmly into the hole.
+4. If using the tool, slide it sideways while holding the magnet in place with your other hand.
+5. Immediately wipe away any excess glue with paper towel.
+6. Repeat for all required holes.
+
+**Wait at least 5 minutes** before bringing other magnets near—the glue needs time to cure, and magnetic attraction can pull magnets out of wet glue.
+
+![Magnet installation](placeholder-for-magnet-photo.jpg)
+
+**Checkpoint:** Magnets should sit flush with or slightly below the surface. Test with a loose magnet—it should snap firmly into place from ~1 cm away.
+
+### Attach magnets to diffuser
+
+1. Orient the diffuser frame so the **corner grooves face upward**.
+2. Flip it over—you'll attach magnets to the **bottom** (the side now facing up).
+3. Install magnets in the four corner holes using the same technique as Step 1.
+4. Ensure polarity is correct: these magnets must attract the bottom piece's magnets.
+
+**Checkpoint:** Place the diffuser frame on the bottom piece. It should click into place magnetically and sit flat.

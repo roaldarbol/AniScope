@@ -1,0 +1,5 @@
+### 7. Power
+
+1. Connect the LED strip's power cable to your 12V supply.
+2. Power on and verify all LEDs illuminate.
+3. If using IR LEDs, you can verify operation with an IR camera (most cameras cannot see near-IR light).

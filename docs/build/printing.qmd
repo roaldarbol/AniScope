@@ -1,0 +1,40 @@
+## 3D Printing
+
+Print the following parts. STL files are available at [link].
+
+| Part | Quantity | Infill | Supports | Print Time |
+|------|----------|--------|----------|------------|
+| Bottom piece (with grid) | 1 | 20% | No | ~X hrs |
+| Top piece | 1 | 20% | No | ~5 hrs |
+| Top piece, empty | 1 | 15% | No | ~5 hrs |
+| Diffuser frame | 1 | 20% | No | ~X hrs |
+| Camera mount (optional) | 1 | 30% | Yes | ~X hrs |
+
+**Choosing a top piece:**
+
+- **Open top (no centre):** Best for DSLR on a tripod or other external mount
+- **X-mount top:** Best for USB cameras with a dedicated camera attachment
+
+**Optional but recommended:** Print the [magnet insertion handles](link-to-file)—they make magnet installation much easier.
+
+Print settings:
+
+- Nozzle: 0.4
+- Layer height: 0.2 mm
+- No skirt (0 mm)
+- Brim: 3 mm
+
+::: {layout-ncol=2}
+
+:::: {#fig-camera-adapter}
+Camera mount
+
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/v2/examples/01_groundbeetles/adapter_camera_usb.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::: {#fig-camera-adapter-2}
+Camera mount 2
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/v2/examples/01_groundbeetles/adapter_camera_usb.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::

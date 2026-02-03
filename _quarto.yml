@@ -2,13 +2,58 @@ project:
   type: website
 
 website:
-  title: "AniScope"
-  navbar:
-    left:
-      - docs/assembly.qmd
-      - href: docs/usage.qmd
-        text: Usage Guide
-      - docs/parts.qmd
+  title: AniScope
+  page-navigation: true
+  sidebar:
+    title: AniScope
+    style: "docked"
+    search: true
+    contents:
+      - href: docs/index.qmd
+        text: Introduction
+      - section: Build Instructions
+        contents:
+          - href: docs/build/instructions.qmd
+            text: Overview
+          - href: docs/build/materials.qmd
+            text: Materials
+          - href: docs/build/printing.qmd
+            text: Printing
+          - section: Assembly
+            contents:
+              - href: docs/build/assembly/assembly.qmd
+                text: Overview
+              - docs/build/assembly/step-1.qmd
+              - docs/build/assembly/step-2.qmd
+              - docs/build/assembly/step-3.qmd
+              - docs/build/assembly/step-4.qmd
+              - docs/build/assembly/step-5.qmd
+              - docs/build/assembly/step-6.qmd
+              - docs/build/assembly/step-7.qmd
+              - docs/build/assembly/checklist.qmd
+          - href: docs/build/parts.qmd
+            text: Customisation
+      - section: Usage Guide
+        contents:
+          - href: docs/usage/usage-guide.qmd
+            text: Overview
+          - href: docs/usage/usage.qmd
+            text: Prepare setup
+          - href: docs/usage/record-video.qmd
+            text: Record videos
+      - section: Advanced
+        contents:
+          - href: docs/usage/open-loop.qmd
+            text: Open-loop experiment
+          - href: docs/usage/closed-loop.qmd
+            text: Closed-loop experiment
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/roaldarbol/AniScope
+          - text: Report a Bug
+            href:  https://github.com/roaldarbol/AniScope/issues
 
 format:
   html:

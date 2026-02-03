@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img width="320" height="320" src="https://github.com/roaldarbol/AniScope/assets/25629697/c0fa6622-6a11-4951-9549-e3fe1faef080">
+  <img width="320" src="assets/finished-setup.jpeg">
 </p>
 <p align="center">
   <b>A modular ethoscope for customised behavioural experiments with tiny animals.</b><br>
@@ -18,9 +18,3 @@ Due to its modular design, AniScope is easy to modify:
 - Create and use presets
 - Multiple arenas available
 - Goes hand-in-hand with [BeeHive](https://github.com/BeeHive-org/BeeHive) for electronics
-
-# Acknowledgements
-The term ethoscope was coined by Quentin Geissman and Giorgio Gilestro (see their [Ethoscope](https://giorgiogilestro.notion.site/giorgiogilestro/Ethoscope-User-Manual-a9739373ae9f4840aa45b277f2f0e3a7)). The philosophy behind the modularity also takes great inspiration from the [UC2](https://github.com/openUC2/UC2-GIT) modular microscope and [BeeHive](https://github.com/BeeHive-org/BeeHive) for electronics.
-
-# Tips
-For keeping track of magnet polarities, we recommend the [Magic Magnet tool](https://www.printables.com/model/409283-the-magic-magnet-tool).

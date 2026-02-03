@@ -5,11 +5,9 @@ website:
   title: "AniScope"
   navbar:
     left:
-      - href: docs/index.qmd
-        text: Home
+      - docs/assembly.qmd
       - href: docs/usage.qmd
         text: Usage Guide
-      - docs/assembly.qmd
       - docs/parts.qmd
 
 format:

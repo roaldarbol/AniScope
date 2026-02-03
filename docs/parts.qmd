@@ -1,0 +1,25 @@
+---
+title: Parts & Customisation
+---
+
+# Customisation
+
+It is easy to customise the AniScope. Follow these steps:
+
+1. [Download OpenSCAD](https://openscad.org/downloads.html)
+2. Download this repository
+    - *From Github: click `Code`->`Download Zip`*
+    - *From command line: `git clone https://github.com/roaldarbol/AniScope.git`*
+3. Open OpenSCAD
+4. Open `aniscope.scad`
+5. Enable the Customizer
+    - `Window` -> `Customizer`
+6. For the best experience, change `Show description`to `Description only`. 
+
+# Parts
+
+Here we show a list of the different components that can be used with the AniScope. 
+
+| Part | Example |
+| ---- | ------ |
+| Camera mount | <iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/v2/examples/01_groundbeetles/adapter_camera_usb.stl" width="300" height="300" frameborder="0"></iframe> |

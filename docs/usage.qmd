@@ -1,0 +1,9 @@
+# How to Use the AniScope
+
+*[This section to be completed—cover topics such as:]*
+
+- Positioning subjects in the arena
+- Adjusting lighting intensity
+- Camera settings for optimal tracking
+- Software integration (if applicable)
+- Cleaning and maintenance

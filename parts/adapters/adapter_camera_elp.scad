@@ -41,16 +41,26 @@ module adapter_usb_elp(
 
         }
     }
-    enclosure_dims = [42,42,30];
+
+    // Walls
+    enclosure_dims = [42.5,42.5,30];
     connector_dims = [24,100,enclosure_dims[2]];
     translate([0,0,enclosure_dims[2]/2])
     difference() {
         rounded_cube(dims = [enclosure_dims[0]+3,enclosure_dims[1]+3,enclosure_dims[2]], radius = 1, outside = false);
-        rounded_cube(dims = [enclosure_dims[0], enclosure_dims[1], enclosure_dims[2]], radius = 1, outside = false);
+        rounded_cube(dims = [enclosure_dims[0], enclosure_dims[1], enclosure_dims[2]+2], radius = 1, outside = true);
         
         // Remove some walls where the connector can go through
-        rounded_cube(dims = connector_dims, radius = 1, outside = false);
+        rounded_cube(dims = connector_dims, radius = 1, outside = true);
         rotate([0,0,90])
-        rounded_cube(dims = connector_dims, radius = 1, outside = false);
+        rounded_cube(dims = connector_dims, radius = 1, outside = true);
     }
+
+    // Floor
+    difference(){
+        rounded_cube(dims = [40,40,6.2], radius = 1, outside = false, $fn = 60);
+        cylinder(d = 20, h = 20, center = true);
+        rounded_cube([5,100,20], outside = true);
+    }
+//   #cube([42,42,50], center = true);  
 }

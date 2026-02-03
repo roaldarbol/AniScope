@@ -1,0 +1,10 @@
+# Troubleshooting
+
+| Problem | Possible Cause | Solution |
+|---------|---------------|----------|
+| LEDs don't light up | Loose connector | Reopen connector, ensure contacts align, close firmly |
+| Uneven lighting | Diffuser not taut; LED segment out | Check fabric tension; check each LED segment individually |
+| Magnets won't hold | Wrong polarity | Check orientation; you may need to remove and reinstall |
+| Magnet fell out | Insufficient glue / pulled out before curing | Re-glue with fresh superglue; wait longer before testing |
+| Camera image is blurry | Wrong focal distance; dirty lens | Adjust camera height; clean lens and diffuser |
+| IR light not visible | LEDs not powered; camera can't see IR | Check power; test with phone camera |

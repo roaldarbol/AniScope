@@ -132,6 +132,7 @@ module print_part() {
             adapter_magnet_dims = adapter_magnet_dims
         );
     } else if (part == "platform_adapter") {
+        rotate([180,0,0])
         platform_adapter(
             dims = dims, 
             magnet_pos = magnet_dims, 

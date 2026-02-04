@@ -1,0 +1,7 @@
+.sidebar-menu-container > ul > li.sidebar-item-section {
+  margin-top: 1em;
+}
+
+.sidebar-menu-container > ul > li > .sidebar-item-container > .sidebar-item-text > .menu-text {
+  font-weight: bold;
+}

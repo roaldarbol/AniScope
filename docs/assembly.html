@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>assembly – AniScope</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../docs/parts.html" rel="next">
+<link href="../docs/printing.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bcb4737e8fbcf1e9dfc00b59f8305558.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../docs/styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/instructions.html">Build Instructions</a></li><li class="breadcrumb-item"><a href="../docs/assembly.html">Assembly</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">AniScope</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/roaldarbol/AniScope">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/roaldarbol/AniScope/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Build Instructions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/materials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/printing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Printing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/assembly.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assembly</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/parts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customisation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Usage Guide</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/usage-guide.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/usage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/record-video.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recording videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assembly-guide" id="toc-assembly-guide" class="nav-link active" data-scroll-target="#assembly-guide">Assembly Guide</a>
+  <ul class="collapse">
+  <li><a href="#bill-of-materials" id="toc-bill-of-materials" class="nav-link" data-scroll-target="#bill-of-materials">Bill of Materials</a></li>
+  <li><a href="#d-printing" id="toc-d-printing" class="nav-link" data-scroll-target="#d-printing">3D Printing</a></li>
+  <li><a href="#assembly" id="toc-assembly" class="nav-link" data-scroll-target="#assembly">Assembly</a>
+  <ul class="collapse">
+  <li><a href="#step-1-attach-magnets-to-the-bottom-piece" id="toc-step-1-attach-magnets-to-the-bottom-piece" class="nav-link" data-scroll-target="#step-1-attach-magnets-to-the-bottom-piece">Step 1: Attach Magnets to the Bottom Piece</a></li>
+  <li><a href="#step-2-attach-magnets-to-the-diffuser-frame" id="toc-step-2-attach-magnets-to-the-diffuser-frame" class="nav-link" data-scroll-target="#step-2-attach-magnets-to-the-diffuser-frame">Step 2: Attach Magnets to the Diffuser Frame</a></li>
+  <li><a href="#step-3-prepare-the-led-strips" id="toc-step-3-prepare-the-led-strips" class="nav-link" data-scroll-target="#step-3-prepare-the-led-strips">Step 3: Prepare the LED Strips</a></li>
+  <li><a href="#step-4-prepare-the-diffuser-fabric" id="toc-step-4-prepare-the-diffuser-fabric" class="nav-link" data-scroll-target="#step-4-prepare-the-diffuser-fabric">Step 4: Prepare the Diffuser Fabric</a></li>
+  <li><a href="#step-5-assemble-the-frame" id="toc-step-5-assemble-the-frame" class="nav-link" data-scroll-target="#step-5-assemble-the-frame">Step 5: Assemble the Frame</a></li>
+  <li><a href="#step-6-attach-the-camera-optional" id="toc-step-6-attach-the-camera-optional" class="nav-link" data-scroll-target="#step-6-attach-the-camera-optional">Step 6: Attach the Camera (Optional)</a></li>
+  <li><a href="#step-7-connect-power-and-test" id="toc-step-7-connect-power-and-test" class="nav-link" data-scroll-target="#step-7-connect-power-and-test">Step 7: Connect Power and Test</a></li>
+  </ul></li>
+  <li><a href="#final-checklist" id="toc-final-checklist" class="nav-link" data-scroll-target="#final-checklist">Final Checklist</a></li>
+  <li><a href="#notes-and-tips" id="toc-notes-and-tips" class="nav-link" data-scroll-target="#notes-and-tips">Notes and Tips</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/instructions.html">Build Instructions</a></li><li class="breadcrumb-item"><a href="../docs/assembly.html">Assembly</a></li></ol></nav></header>
+
+
+
+
+<section id="assembly-guide" class="level1">
+<h1>Assembly Guide</h1>
+<p><strong>Difficulty:</strong> Beginner–Intermediate<br>
+<strong>Build time:</strong> 1-2 hours (excluding 3D printing)<br>
+<strong>3D printing time:</strong> Approximately 20 hours (varies by printer)<br>
+<strong>Estimated cost:</strong> €XX–€XX (excluding camera and 3D printer)</p>
+<blockquote class="blockquote">
+<p><strong>Before you start:</strong> Read each section to the end before beginning it. This helps you understand what’s coming and ensures you have everything ready. Printing the 3D parts may take a couple of days on a single printer—plan accordingly.</p>
+</blockquote>
+<section id="bill-of-materials" class="level2">
+<h2 class="anchored" data-anchor-id="bill-of-materials">Bill of Materials</h2>
+<p>Gather all of the following before you begin. Links are provided for reference; equivalent parts from other suppliers will work.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="goxiyhrgma" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#goxiyhrgma table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#goxiyhrgma thead, #goxiyhrgma tbody, #goxiyhrgma tfoot, #goxiyhrgma tr, #goxiyhrgma td, #goxiyhrgma th {
+  border-style: none;
+}
+
+#goxiyhrgma p {
+  margin: 0;
+  padding: 0;
+}
+
+#goxiyhrgma .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#goxiyhrgma .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#goxiyhrgma .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#goxiyhrgma .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#goxiyhrgma .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#goxiyhrgma .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#goxiyhrgma .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#goxiyhrgma .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#goxiyhrgma .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#goxiyhrgma .gt_group_heading {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#goxiyhrgma .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#goxiyhrgma .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#goxiyhrgma .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#goxiyhrgma .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#goxiyhrgma .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#goxiyhrgma .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#goxiyhrgma .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#goxiyhrgma .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#goxiyhrgma .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#goxiyhrgma .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#goxiyhrgma .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#goxiyhrgma .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#goxiyhrgma .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#goxiyhrgma .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#goxiyhrgma .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#goxiyhrgma .gt_left {
+  text-align: left;
+}
+
+#goxiyhrgma .gt_center {
+  text-align: center;
+}
+
+#goxiyhrgma .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#goxiyhrgma .gt_font_normal {
+  font-weight: normal;
+}
+
+#goxiyhrgma .gt_font_bold {
+  font-weight: bold;
+}
+
+#goxiyhrgma .gt_font_italic {
+  font-style: italic;
+}
+
+#goxiyhrgma .gt_super {
+  font-size: 65%;
+}
+
+#goxiyhrgma .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#goxiyhrgma .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#goxiyhrgma .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#goxiyhrgma .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#goxiyhrgma .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#goxiyhrgma .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#goxiyhrgma .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#goxiyhrgma .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#goxiyhrgma div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="Item" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Item</th>
+<th id="Quantity" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Quantity</th>
+<th id="Source" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Source</th>
+<th id="Price" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Approx. Price</th>
+<th id="Notes" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Notes</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row odd">
+<th colspan="5" id="3D Printing" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #F5F5F5; font-weight: bold" scope="colgroup">3D Printing</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="3D Printing  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">3D printer</td>
+<td class="gt_row gt_left" headers="3D Printing  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1</td>
+<td class="gt_row gt_left" headers="3D Printing  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="3D Printing  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="3D Printing  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Any FDM printer with ≥15 cm build plate</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="3D Printing  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">PLA/PETG filament</td>
+<td class="gt_row gt_left" headers="3D Printing  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">~Xg</td>
+<td class="gt_row gt_left" headers="3D Printing  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="3D Printing  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="3D Printing  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Colour of your choice</td>
+</tr>
+<tr class="gt_group_heading_row even">
+<th colspan="5" id="Structural Components" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #F5F5F5; font-weight: bold" scope="colgroup">Structural Components</th>
+</tr>
+<tr class="gt_row_group_first odd">
+<td class="gt_row gt_left" headers="Structural Components  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">MakerBeam 30 cm</td>
+<td class="gt_row gt_left" headers="Structural Components  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">4</td>
+<td class="gt_row gt_left" headers="Structural Components  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><a href="#">Link</a></td>
+<td class="gt_row gt_left" headers="Structural Components  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">€X</td>
+<td class="gt_row gt_left" headers="Structural Components  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Structural Components  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">MakerBeam tapered bolts</td>
+<td class="gt_row gt_left" headers="Structural Components  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">4</td>
+<td class="gt_row gt_left" headers="Structural Components  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><a href="#">Link</a></td>
+<td class="gt_row gt_left" headers="Structural Components  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">€X</td>
+<td class="gt_row gt_left" headers="Structural Components  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Structural Components  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">MakerBeam standard bolts</td>
+<td class="gt_row gt_left" headers="Structural Components  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">8</td>
+<td class="gt_row gt_left" headers="Structural Components  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><a href="#">Link</a></td>
+<td class="gt_row gt_left" headers="Structural Components  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">€X</td>
+<td class="gt_row gt_left" headers="Structural Components  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Structural Components  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">MakerBeam nuts</td>
+<td class="gt_row gt_left" headers="Structural Components  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">X</td>
+<td class="gt_row gt_left" headers="Structural Components  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><a href="#">Link</a></td>
+<td class="gt_row gt_left" headers="Structural Components  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">€X</td>
+<td class="gt_row gt_left" headers="Structural Components  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<th colspan="5" id="Lighting" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #F5F5F5; font-weight: bold" scope="colgroup">Lighting</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="Lighting  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">IR LED strip</td>
+<td class="gt_row gt_left" headers="Lighting  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1 roll</td>
+<td class="gt_row gt_left" headers="Lighting  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">850 nm or 940 nm; need 40 cm total</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Lighting  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">End click connector</td>
+<td class="gt_row gt_left" headers="Lighting  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1</td>
+<td class="gt_row gt_left" headers="Lighting  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Must match strip width</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Lighting  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Corner click connectors</td>
+<td class="gt_row gt_left" headers="Lighting  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">3</td>
+<td class="gt_row gt_left" headers="Lighting  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Must match strip width</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Lighting  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">12V power supply</td>
+<td class="gt_row gt_left" headers="Lighting  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1</td>
+<td class="gt_row gt_left" headers="Lighting  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Lighting  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">For LED strips</td>
+</tr>
+<tr class="gt_group_heading_row even">
+<th colspan="5" id="Assembly Supplies" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #F5F5F5; font-weight: bold" scope="colgroup">Assembly Supplies</th>
+</tr>
+<tr class="gt_row_group_first odd">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Neodymium magnets (Ø6 x 2 mm)</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">X</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Quantity depends on configuration</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Superglue (cyanoacrylate)</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Gorilla Glue or similar</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Diffuser fabric</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1 piece</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">White ripstop nylon or similar; ~20 x 15 cm</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Small cable ties</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">~10</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">For cable management</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Disposable gloves</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1 pair</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Nitrile or latex</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Paper towels</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">A few sheets</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">For wiping excess glue</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Assembly Supplies  Item" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">Stanley knife / scissors</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Quantity" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">1</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Source" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Price" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3"><br>
+</td>
+<td class="gt_row gt_left" headers="Assembly Supplies  Notes" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d3d3d3">For cutting LED strips and fabric</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="d-printing" class="level2">
+<h2 class="anchored" data-anchor-id="d-printing">3D Printing</h2>
+<p>Print the following parts. STL files are available at [link].</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Quantity</th>
+<th>Infill</th>
+<th>Supports</th>
+<th>Print Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bottom piece (with grid)</td>
+<td>1</td>
+<td>20%</td>
+<td>No</td>
+<td>~X hrs</td>
+</tr>
+<tr class="even">
+<td>Top piece</td>
+<td>1</td>
+<td>20%</td>
+<td>No</td>
+<td>~5 hrs</td>
+</tr>
+<tr class="odd">
+<td>Top piece, empty</td>
+<td>1</td>
+<td>15%</td>
+<td>No</td>
+<td>~5 hrs</td>
+</tr>
+<tr class="even">
+<td>Diffuser frame</td>
+<td>1</td>
+<td>20%</td>
+<td>No</td>
+<td>~X hrs</td>
+</tr>
+<tr class="odd">
+<td>Camera mount (optional)</td>
+<td>1</td>
+<td>30%</td>
+<td>Yes</td>
+<td>~X hrs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choosing a top piece:</strong></p>
+<ul>
+<li><strong>Open top (no centre):</strong> Best for DSLR on a tripod or other external mount</li>
+<li><strong>X-mount top:</strong> Best for USB cameras with a dedicated camera attachment</li>
+</ul>
+<p><strong>Optional but recommended:</strong> Print the <a href="link-to-file">magnet insertion handles</a>—they make magnet installation much easier.</p>
+<p>Print settings:</p>
+<ul>
+<li>Nozzle: 0.4</li>
+<li>Layer height: 0.2 mm</li>
+<li>No skirt (0 mm)</li>
+<li>Brim: 3 mm</li>
+</ul>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-camera-adapter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-camera-adapter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Camera mount</p>
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/v2/examples/01_groundbeetles/adapter_camera_usb.stl" width="100%" height="300" frameborder="0">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-camera-adapter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-camera-adapter-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-camera-adapter-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Camera mount 2 <iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/v2/examples/01_groundbeetles/adapter_camera_usb.stl" width="100%" height="300" frameborder="0"></iframe></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-camera-adapter-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="assembly" class="level2">
+<h2 class="anchored" data-anchor-id="assembly">Assembly</h2>
+<section id="step-1-attach-magnets-to-the-bottom-piece" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-attach-magnets-to-the-bottom-piece">Step 1: Attach Magnets to the Bottom Piece</h3>
+<blockquote class="blockquote">
+<p><strong>Warning:</strong> Superglue bonds skin instantly. Wear gloves throughout this step, and have paper towels within reach to wipe up excess glue immediately.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Read this entire step before starting.</strong> Once glue is applied, you have only a few seconds to position the magnet.</p>
+</blockquote>
+<section id="decide-on-magnet-polarity" class="level4">
+<h4 class="anchored" data-anchor-id="decide-on-magnet-polarity">Decide on magnet polarity</h4>
+<p>All magnets in <strong>upward-facing holes</strong> should have the same pole facing up. All magnets in <strong>downward-facing holes</strong> should have the opposite pole facing up. This ensures parts attach correctly later. The <a href="https://www.printables.com/model/442051-the-magic-magnet-tool-small-size"><strong>Magic Magnet Tool</strong></a> makes this easy by providing a tool for each.</p>
+</section>
+<section id="install-each-magnet" class="level4">
+<h4 class="anchored" data-anchor-id="install-each-magnet">Install each magnet</h4>
+<ol type="1">
+<li>Place a magnet on the insertion tool (or hold carefully with gloved fingers), correct pole facing outward.</li>
+<li>Apply a small drop of superglue into the hole.</li>
+<li>Press the magnet firmly into the hole.</li>
+<li>If using the tool, slide it sideways while holding the magnet in place with your other hand.</li>
+<li>Immediately wipe away any excess glue with paper towel.</li>
+<li>Repeat for all required holes.</li>
+</ol>
+<p><strong>Wait at least 5 minutes</strong> before bringing other magnets near—the glue needs time to cure, and magnetic attraction can pull magnets out of wet glue.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="placeholder-for-magnet-photo.jpg" class="img-fluid figure-img"></p>
+<figcaption>Magnet installation</figcaption>
+</figure>
+</div>
+<p><strong>Checkpoint:</strong> Magnets should sit flush with or slightly below the surface. Test with a loose magnet—it should snap firmly into place from ~1 cm away.</p>
+</section>
+</section>
+<section id="step-2-attach-magnets-to-the-diffuser-frame" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-attach-magnets-to-the-diffuser-frame">Step 2: Attach Magnets to the Diffuser Frame</h3>
+<ol type="1">
+<li>Orient the diffuser frame so the <strong>corner grooves face upward</strong>.</li>
+<li>Flip it over—you’ll attach magnets to the <strong>bottom</strong> (the side now facing up).</li>
+<li>Install magnets in the four corner holes using the same technique as Step 1.</li>
+<li>Ensure polarity is correct: these magnets must attract the bottom piece’s magnets.</li>
+</ol>
+<p><strong>Checkpoint:</strong> Place the diffuser frame on the bottom piece. It should click into place magnetically and sit flat.</p>
+</section>
+<section id="step-3-prepare-the-led-strips" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-prepare-the-led-strips">Step 3: Prepare the LED Strips</h3>
+<blockquote class="blockquote">
+<p><strong>Warning:</strong> When stripping waterproof strips, remove only the silicone coating, ensuring not to cut the strip itself.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Warning:</strong> Do not lift the metal contacts inside the click connectors. This causes loose connections that are difficult to fix.</p>
+</blockquote>
+<ol type="1">
+<li>Cut <strong>4 segments</strong> from the LED strip roll, each <strong>2 LEDs long</strong> (~10 cm). Cut only on the marked lines.</li>
+<li>If using waterproof strips: carefully trim ~1 cm of silicone coating from each end to expose the contacts.</li>
+<li>Open a <strong>corner connector</strong> by lifting the plastic flaps.</li>
+<li>Insert one strip, matching <strong>+</strong> to <strong>+</strong> and <strong>−</strong> to <strong>−</strong>.</li>
+<li>Close the flap firmly.</li>
+<li>Repeat, connecting all four strips with three corner connectors to form a square.</li>
+<li>Attach the <strong>end connector</strong> to one remaining strip end for power.</li>
+<li>Place the <strong>LED strip assembly</strong> into the bottom piece’s floor.</li>
+<li>Use small cable ties to secure across the connectors and in the middle of each segment.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="placeholder-for-led-diagram.jpg" class="img-fluid figure-img"></p>
+<figcaption>LED strip assembly diagram</figcaption>
+</figure>
+</div>
+<p><strong>Checkpoint:</strong> Connect to 12V power briefly. All four strips should illuminate evenly - this may not be visible by eye, instead point an IR-sensitive camera at the strips to see whether they light up. If any strip is dim or off, check that connector’s contacts.</p>
+<p><strong>Set the LED assembly aside</strong>—we’ll install it into the frame later.</p>
+</section>
+<section id="step-4-prepare-the-diffuser-fabric" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-prepare-the-diffuser-fabric">Step 4: Prepare the Diffuser Fabric</h3>
+<ol type="1">
+<li>Cut a piece of diffuser fabric approximately <strong>20 cm × 15 cm</strong> (exact size is not critical; it just needs to cover the frame with ~2 cm overhang on each side).</li>
+<li>Place the diffuser frame groove-side up.</li>
+<li>Lay the fabric over the top.</li>
+<li>On one short end, fold the fabric underneath and secure with <strong>2 spare magnets</strong> on the underside.</li>
+<li>Pull the fabric taut across the top.</li>
+<li>Fold the opposite end underneath and secure with 2 more magnets.</li>
+</ol>
+<p><strong>Checkpoint:</strong> The fabric should be taut with no wrinkles. When held up to light, it should appear evenly translucent.</p>
+</section>
+<section id="step-5-assemble-the-frame" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-assemble-the-frame">Step 5: Assemble the Frame</h3>
+<ol type="1">
+<li>Take the <strong>4 MakerBeam 30 cm rails</strong> and <strong>4 tapered bolts</strong>.</li>
+<li>Screw a tapered bolt into each corner hole of the <strong>bottom piece</strong>. The rails should point upward.</li>
+<li>Slide the <strong>diffuser frame</strong> down the rails from above.</li>
+<li>On the sides with grooves, slide a <strong>standard bolt</strong> into the MakerBeam slot.</li>
+<li>Adjust the diffuser to your desired height, then tighten the bolt with a nut to lock it in place.</li>
+<li>(Optional) If using multiple diffusers, add them the same way at different heights.</li>
+<li>Slide the <strong>arena</strong> down the rails and secure at the desired height.</li>
+<li>Attach the <strong>top piece</strong> to the rail tops using the remaining tapered bolts.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="placeholder-for-assembly-photo.jpg" class="img-fluid figure-img"></p>
+<figcaption>Frame assembly</figcaption>
+</figure>
+</div>
+</section>
+<section id="step-6-attach-the-camera-optional" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-attach-the-camera-optional">Step 6: Attach the Camera (Optional)</h3>
+<p>If using a <strong>USB camera</strong> with the X-mount top:</p>
+<ol type="1">
+<li>Attach the camera to the printed camera mount.</li>
+<li>Slide the mount into the X-shaped slot on the top piece.</li>
+<li>Secure with magnets or bolts as appropriate for your mount design.</li>
+</ol>
+<p>If using a <strong>DSLR or external camera:</strong></p>
+<ol type="1">
+<li>Position your tripod over the AniScope, looking down through the open top.</li>
+<li>Adjust tripod height so the arena fills the camera’s field of view.</li>
+</ol>
+</section>
+<section id="step-7-connect-power-and-test" class="level3">
+<h3 class="anchored" data-anchor-id="step-7-connect-power-and-test">Step 7: Connect Power and Test</h3>
+<ol type="1">
+<li>Connect the LED strip’s power cable to your 12V supply.</li>
+<li>Power on and verify all LEDs illuminate.</li>
+<li>If using IR LEDs, you can verify operation with an IR camera (most cameras cannot see near-IR light).</li>
+</ol>
+</section>
+</section>
+<section id="final-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="final-checklist">Final Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">All magnets secure and properly polarised</label></li>
+<li><label><input type="checkbox">LED strips illuminate evenly</label></li>
+<li><label><input type="checkbox">Diffuser fabric taut and wrinkle-free</label></li>
+<li><label><input type="checkbox">All frame components slide smoothly on rails</label></li>
+<li><label><input type="checkbox">Camera has clear view of entire arena</label></li>
+<li><label><input type="checkbox">No loose cables in the imaging area</label></li>
+</ul>
+<p><strong>Congratulations—your AniScope is ready to use!</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="placeholder-for-hero-shot.jpg" class="img-fluid figure-img"></p>
+<figcaption>Completed AniScope</figcaption>
+</figure>
+</div>
+</section>
+<section id="notes-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="notes-and-tips">Notes and Tips</h2>
+<ul>
+<li><strong>More diffusion needed?</strong> Add a second diffuser layer, or use a second diffuser frame with fabric at a different height.</li>
+<li><strong>Custom arena sizes:</strong> The design is parametric—see [link] to generate parts for different dimensions.</li>
+<li><strong>Filament choice:</strong> PLA works fine for most uses. PETG is more durable if you expect rough handling.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../docs/printing.html" class="pagination-link" aria-label="Printing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Printing</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../docs/parts.html" class="pagination-link" aria-label="Customisation">
+        <span class="nav-page-text">Customisation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

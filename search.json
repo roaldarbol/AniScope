@@ -1,0 +1,216 @@
+[
+  {
+    "objectID": "docs/build/parts.html",
+    "href": "docs/build/parts.html",
+    "title": "Parts & Customisation",
+    "section": "",
+    "text": "Customisation\nIt is easy to customise the AniScope. Follow these steps:\n\nDownload OpenSCAD\nDownload this repository\n\nFrom Github: click Code-&gt;Download Zip\nFrom command line: git clone https://github.com/roaldarbol/AniScope.git\n\nOpen OpenSCAD\nOpen aniscope.scad\nEnable the Customizer\n\nWindow -&gt; Customizer\n\nFor the best experience, change Show descriptionto Description only.\n\n\n\nParts\nHere we show a list of the different components that can be used with the AniScope.\n\n\n\n\n\n\n\nPart\nExample\n\n\n\n\nCamera mount",
+    "crumbs": [
+      "Build Instructions",
+      "Customisation"
+    ]
+  },
+  {
+    "objectID": "docs/build/instructions.html",
+    "href": "docs/build/instructions.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Overview\nDifficulty: Beginner–Intermediate\nBuild time: 1-2 hours (excluding 3D printing)\n3D printing time: Approximately 20 hours (varies by printer)\nEstimated cost: €XX–€XX (excluding camera and 3D printer)\n\nBefore you start: Read each section to the end before beginning it. This helps you understand what’s coming and ensures you have everything ready. Printing the 3D parts may take a couple of days on a single printer—plan accordingly.",
+    "crumbs": [
+      "Build Instructions",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/checklist.html",
+    "href": "docs/build/assembly/checklist.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "All magnets secure and properly polarised\nLED strips illuminate evenly\nDiffuser fabric taut and wrinkle-free\nAll frame components slide smoothly on rails\nCamera has clear view of entire arena\nNo loose cables in the imaging area\n\nCongratulations—your AniScope is ready to use!\n\n\n\nCompleted AniScope",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/checklist.html#checklist",
+    "href": "docs/build/assembly/checklist.html#checklist",
+    "title": "AniScope",
+    "section": "",
+    "text": "All magnets secure and properly polarised\nLED strips illuminate evenly\nDiffuser fabric taut and wrinkle-free\nAll frame components slide smoothly on rails\nCamera has clear view of entire arena\nNo loose cables in the imaging area\n\nCongratulations—your AniScope is ready to use!\n\n\n\nCompleted AniScope",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "Checklist"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-3.html",
+    "href": "docs/build/assembly/step-3.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "3. Diffuser\n\nOrient the diffuser frame so the corner grooves face upward.\nFlip it over—you’ll attach magnets to the bottom (the side now facing up).\nInstall magnets in the four corner holes using the same technique as Step 1.\nEnsure polarity is correct: these magnets must attract the bottom piece’s magnets.\n\nCheckpoint: Place the diffuser frame on the bottom piece. It should click into place magnetically and sit flat.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "3. Diffuser"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-6.html",
+    "href": "docs/build/assembly/step-6.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "6. Camera\nIf using a USB camera with the X-mount top:\n\nAttach the camera to the printed camera mount.\nSlide the mount into the X-shaped slot on the top piece.\nSecure with magnets or bolts as appropriate for your mount design.\n\nIf using a DSLR or external camera:\n\nPosition your tripod over the AniScope, looking down through the open top.\nAdjust tripod height so the arena fills the camera’s field of view.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "6. Camera"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-5.html",
+    "href": "docs/build/assembly/step-5.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "5. Assemble\n\nTake the 4 MakerBeam 30 cm rails and 4 tapered bolts.\nScrew a tapered bolt into each corner hole of the bottom piece. The rails should point upward.\nSlide the diffuser frame down the rails from above.\nOn the sides with grooves, slide a standard bolt into the MakerBeam slot.\nAdjust the diffuser to your desired height, then tighten the bolt with a nut to lock it in place.\n(Optional) If using multiple diffusers, add them the same way at different heights.\nSlide the arena down the rails and secure at the desired height.\nAttach the top piece to the rail tops using the remaining tapered bolts.\n\n\n\n\nFrame assembly",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "5. Assemble"
+    ]
+  },
+  {
+    "objectID": "docs/build/printing.html",
+    "href": "docs/build/printing.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "Print the following parts. STL files are available at [link].\n\n\n\nPart\nQuantity\nInfill\nSupports\nPrint Time\n\n\n\n\nBottom piece (with grid)\n1\n20%\nNo\n~X hrs\n\n\nTop piece\n1\n20%\nNo\n~5 hrs\n\n\nTop piece, empty\n1\n15%\nNo\n~5 hrs\n\n\nDiffuser frame\n1\n20%\nNo\n~X hrs\n\n\nCamera mount (optional)\n1\n30%\nYes\n~X hrs\n\n\n\nChoosing a top piece:\n\nOpen top (no centre): Best for DSLR on a tripod or other external mount\nX-mount top: Best for USB cameras with a dedicated camera attachment\n\nOptional but recommended: Print the magnet insertion handles—they make magnet installation much easier.\nPrint settings:\n\nNozzle: 0.4\nLayer height: 0.2 mm\nNo skirt (0 mm)\nBrim: 3 mm\n\n\n\n\n\n\n\nCamera mount\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\nCamera mount 2 \n\n\nFigure 2",
+    "crumbs": [
+      "Build Instructions",
+      "Printing"
+    ]
+  },
+  {
+    "objectID": "docs/build/printing.html#d-printing",
+    "href": "docs/build/printing.html#d-printing",
+    "title": "AniScope",
+    "section": "",
+    "text": "Print the following parts. STL files are available at [link].\n\n\n\nPart\nQuantity\nInfill\nSupports\nPrint Time\n\n\n\n\nBottom piece (with grid)\n1\n20%\nNo\n~X hrs\n\n\nTop piece\n1\n20%\nNo\n~5 hrs\n\n\nTop piece, empty\n1\n15%\nNo\n~5 hrs\n\n\nDiffuser frame\n1\n20%\nNo\n~X hrs\n\n\nCamera mount (optional)\n1\n30%\nYes\n~X hrs\n\n\n\nChoosing a top piece:\n\nOpen top (no centre): Best for DSLR on a tripod or other external mount\nX-mount top: Best for USB cameras with a dedicated camera attachment\n\nOptional but recommended: Print the magnet insertion handles—they make magnet installation much easier.\nPrint settings:\n\nNozzle: 0.4\nLayer height: 0.2 mm\nNo skirt (0 mm)\nBrim: 3 mm\n\n\n\n\n\n\n\nCamera mount\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\nCamera mount 2 \n\n\nFigure 2",
+    "crumbs": [
+      "Build Instructions",
+      "Printing"
+    ]
+  },
+  {
+    "objectID": "docs/index.html",
+    "href": "docs/index.html",
+    "title": "\nAniScope\n",
+    "section": "",
+    "text": "AniScope\n\n\n \n\n\n\n\n\nA modular ethoscope for customised behavioural experiments with tiny animals.\n\n\nIntroduction\nThe AniScope is a modular, 3D-printed imaging arena for tracking small animals (insects, spiders, larvae, etc.). It provides uniform infrared backlighting, adjustable diffusion, and a stable camera mount—all in a compact, customisable package.\n\n\nFeatures\nDue to its modular design, AniScope is easy to modify:\n\nEasy customization with the OpenSCAD Customizer\nCreate and use presets\nMultiple arenas available\nGoes hand-in-hand with BeeHive for electronics",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "docs/usage/usage.html",
+    "href": "docs/usage/usage.html",
+    "title": "How to Use the AniScope",
+    "section": "",
+    "text": "How to Use the AniScope\n[This section to be completed—cover topics such as:]\n\nPositioning subjects in the arena\nAdjusting lighting intensity\nCamera settings for optimal tracking\nSoftware integration (if applicable)\nCleaning and maintenance",
+    "crumbs": [
+      "Usage Guide",
+      "Prepare setup"
+    ]
+  },
+  {
+    "objectID": "docs/usage/record-video.html",
+    "href": "docs/usage/record-video.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "OBS or Bonsai",
+    "crumbs": [
+      "Usage Guide",
+      "Record videos"
+    ]
+  },
+  {
+    "objectID": "docs/troubleshooting.html",
+    "href": "docs/troubleshooting.html",
+    "title": "Troubleshooting",
+    "section": "",
+    "text": "Troubleshooting\n\n\n\n\n\n\n\n\nProblem\nPossible Cause\nSolution\n\n\n\n\nLEDs don’t light up\nLoose connector\nReopen connector, ensure contacts align, close firmly\n\n\nUneven lighting\nDiffuser not taut; LED segment out\nCheck fabric tension; check each LED segment individually\n\n\nMagnets won’t hold\nWrong polarity\nCheck orientation; you may need to remove and reinstall\n\n\nMagnet fell out\nInsufficient glue / pulled out before curing\nRe-glue with fresh superglue; wait longer before testing\n\n\nCamera image is blurry\nWrong focal distance; dirty lens\nAdjust camera height; clean lens and diffuser\n\n\nIR light not visible\nLEDs not powered; camera can’t see IR\nCheck power; test with phone camera"
+  },
+  {
+    "objectID": "docs/build/assembly/step-4.html",
+    "href": "docs/build/assembly/step-4.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "4. Diffuser Fabric\n\nCut a piece of diffuser fabric approximately 20 cm × 15 cm (exact size is not critical; it just needs to cover the frame with ~2 cm overhang on each side).\nPlace the diffuser frame groove-side up.\nLay the fabric over the top.\nOn one short end, fold the fabric underneath and secure with 2 spare magnets on the underside.\nPull the fabric taut across the top.\nFold the opposite end underneath and secure with 2 more magnets.\n\nCheckpoint: The fabric should be taut with no wrinkles. When held up to light, it should appear evenly translucent.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "4. Diffuser Fabric"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-7.html",
+    "href": "docs/build/assembly/step-7.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "7. Power\n\nConnect the LED strip’s power cable to your 12V supply.\nPower on and verify all LEDs illuminate.\nIf using IR LEDs, you can verify operation with an IR camera (most cameras cannot see near-IR light).",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "7. Power"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-2.html",
+    "href": "docs/build/assembly/step-2.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "2. LED Strips\n\nWarning: When stripping waterproof strips, remove only the silicone coating, ensuring not to cut the strip itself.\n\n\nWarning: Do not lift the metal contacts inside the click connectors. This causes loose connections that are difficult to fix.\n\n\nCut 4 segments from the LED strip roll, each 2 LEDs long (~10 cm). Cut only on the marked lines.\nIf using waterproof strips: carefully trim ~1 cm of silicone coating from each end to expose the contacts.\nOpen a corner connector by lifting the plastic flaps.\nInsert one strip, matching + to + and − to −.\nClose the flap firmly.\nRepeat, connecting all four strips with three corner connectors to form a square.\nAttach the end connector to one remaining strip end for power.\nPlace the LED strip assembly into the bottom piece’s floor.\nUse small cable ties to secure across the connectors and in the middle of each segment.\n\n\n\n\nLED strip assembly diagram\n\n\nCheckpoint: Connect to 12V power briefly. All four strips should illuminate evenly - this may not be visible by eye, instead point an IR-sensitive camera at the strips to see whether they light up. If any strip is dim or off, check that connector’s contacts.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "2. LED Strips"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/step-1.html",
+    "href": "docs/build/assembly/step-1.html",
+    "title": "AniScope",
+    "section": "",
+    "text": "1. Magnets\n\nWarning: Superglue bonds skin instantly. Wear gloves throughout this step, and have paper towels within reach to wipe up excess glue immediately.\n\n\nRead this entire step before starting. Once glue is applied, you have only a few seconds to position the magnet.\n\n\nDecide on magnet polarity\nAll magnets in upward-facing holes should have the same pole facing up. All magnets in downward-facing holes should have the opposite pole facing up. This ensures parts attach correctly later. The Magic Magnet Tool makes this easy by providing a tool for each.\n\n\nInstall each magnet\n\nPlace a magnet on the insertion tool (or hold carefully with gloved fingers), correct pole facing outward.\nApply a small drop of superglue into the hole.\nPress the magnet firmly into the hole.\nIf using the tool, slide it sideways while holding the magnet in place with your other hand.\nImmediately wipe away any excess glue with paper towel.\nRepeat for all required holes.\n\nWait at least 5 minutes before bringing other magnets near—the glue needs time to cure, and magnetic attraction can pull magnets out of wet glue.\n\n\n\nMagnet installation\n\n\nCheckpoint: Magnets should sit flush with or slightly below the surface. Test with a loose magnet—it should snap firmly into place from ~1 cm away.\n\n\n\nAttach magnets to diffuser\n\nOrient the diffuser frame so the corner grooves face upward.\nFlip it over—you’ll attach magnets to the bottom (the side now facing up).\nInstall magnets in the four corner holes using the same technique as Step 1.\nEnsure polarity is correct: these magnets must attract the bottom piece’s magnets.\n\nCheckpoint: Place the diffuser frame on the bottom piece. It should click into place magnetically and sit flat.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "1. Magnets"
+    ]
+  },
+  {
+    "objectID": "docs/build/assembly/assembly.html#notes-and-tips",
+    "href": "docs/build/assembly/assembly.html#notes-and-tips",
+    "title": "AniScope",
+    "section": "Notes and Tips",
+    "text": "Notes and Tips\n\nMore diffusion needed? Add a second diffuser layer, or use a second diffuser frame with fabric at a different height.\nCustom arena sizes: The design is parametric—see [link] to generate parts for different dimensions.\nFilament choice: PLA works fine for most uses. PETG is more durable if you expect rough handling.",
+    "crumbs": [
+      "Build Instructions",
+      "Assembly",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "docs/build/materials.html",
+    "href": "docs/build/materials.html",
+    "title": "Bill of Materials",
+    "section": "",
+    "text": "Bill of Materials\nGather all of the following before you begin. Links are provided for reference; equivalent parts from other suppliers will work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nItem\nQuantity\nSource\nApprox. Price\nNotes\n\n\n\n\n3D Printing\n\n\n3D printer\n1\n\n\n\n\nAny FDM printer with ≥15 cm build plate\n\n\nPLA/PETG filament\n~Xg\n\n\n\n\nColour of your choice\n\n\nStructural Components\n\n\nMakerBeam 30 cm\n4\nLink\n€X\n\n\n\n\nMakerBeam tapered bolts\n4\nLink\n€X\n\n\n\n\nMakerBeam standard bolts\n8\nLink\n€X\n\n\n\n\nMakerBeam nuts\nX\nLink\n€X\n\n\n\n\nLighting\n\n\nIR LED strip\n1 roll\n\n\n\n\n850 nm or 940 nm; need 40 cm total\n\n\nEnd click connector\n1\n\n\n\n\nMust match strip width\n\n\nCorner click connectors\n3\n\n\n\n\nMust match strip width\n\n\n12V power supply\n1\n\n\n\n\nFor LED strips\n\n\nAssembly Supplies\n\n\nNeodymium magnets (Ø6 x 2 mm)\nX\n\n\n\n\nQuantity depends on configuration\n\n\nSuperglue (cyanoacrylate)\n1\n\n\n\n\nGorilla Glue or similar\n\n\nDiffuser fabric\n1 piece\n\n\n\n\nWhite ripstop nylon or similar; ~20 x 15 cm\n\n\nSmall cable ties\n~10\n\n\n\n\nFor cable management\n\n\nDisposable gloves\n1 pair\n\n\n\n\nNitrile or latex\n\n\nPaper towels\nA few sheets\n\n\n\n\nFor wiping excess glue\n\n\nStanley knife / scissors\n1\n\n\n\n\nFor cutting LED strips and fabric",
+    "crumbs": [
+      "Build Instructions",
+      "Materials"
+    ]
+  }
+]

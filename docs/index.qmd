@@ -4,12 +4,16 @@
 <a href="#"><img alt="Stars" src="https://img.shields.io/github/stars/roaldarbol/aniscope?style=social"></a>
 </p>
 
-<p align="center">
-  <img width="320" src="assets/finished-setup.jpeg">
-</p>
+::: {style="text-align: center;"}
+![](assets/finished-setup.jpeg){width="320"}
+:::
 <p align="center">
   <b>A modular ethoscope for customised behavioural experiments with tiny animals.</b><br>
 </p>
+
+::: {.callout-warning}
+These docs are currently under active development
+:::
 
 # Introduction
 

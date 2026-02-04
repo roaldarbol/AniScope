@@ -2,7 +2,9 @@
 
 **Difficulty:** Beginner–Intermediate  
 **Build time:** 1-2 hours (excluding 3D printing)  
-**3D printing time:** Approximately 20 hours (varies by printer)  
+**3D printing time:** Approximately 25 hours (varies by printer)  
 **Estimated cost:** €XX–€XX (excluding camera and 3D printer)
 
-> **Before you start:** Read each section to the end before beginning it. This helps you understand what's coming and ensures you have everything ready. Printing the 3D parts may take a couple of days on a single printer—plan accordingly.
+::: {.callout-important} 
+Read each section to the end before beginning it. This helps you understand what's coming and ensures you have everything ready. Printing the 3D parts may take a couple of days on a single printer—plan accordingly.
+:::

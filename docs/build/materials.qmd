@@ -10,7 +10,7 @@ tibble::tribble(
   ~Category, ~Item, ~Quantity, ~Source, ~Price, ~Notes,
   
   # 3D Printing
-  "3D Printing", "3D printer", "1", NA, NA, "Any FDM printer with ≥15 cm build plate",
+  "3D Printing", "3D printer", "1", NA, "€500-€1000", "Any FDM printer with ≥15 cm build plate",
   "3D Printing", "PLA/PETG filament", "~Xg", NA, NA, "Colour of your choice",
   
   # Structural Components

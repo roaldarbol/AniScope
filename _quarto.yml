@@ -20,17 +20,20 @@ website:
             text: Overview
           - href: docs/build/materials.qmd
             text: Materials
-          - href: docs/build/printing.qmd
-            text: Printing
+          - section: Printing
+            contents: 
+              - docs/build/printing/print-primer.qmd
+              - docs/build/printing/settings.qmd
+              - docs/build/printing/printing.qmd
+              - docs/build/printing/platforms.qmd
           - section: Assembly
             contents:
-              - href: docs/build/assembly/assembly.qmd
+              - href: docs/build/assembly/assembly-overview.qmd
                 text: Overview
-              - docs/build/assembly/step-1.qmd
-              - docs/build/assembly/step-2.qmd
-              - docs/build/assembly/step-3.qmd
-              - docs/build/assembly/step-4.qmd
-              - docs/build/assembly/step-5.qmd
+              - docs/build/assembly/magnets.qmd
+              - docs/build/assembly/led.qmd
+              - docs/build/assembly/diffuser.qmd
+              - docs/build/assembly/assemble.qmd
               - docs/build/assembly/step-6.qmd
               - docs/build/assembly/step-7.qmd
               - docs/build/assembly/checklist.qmd
@@ -65,6 +68,7 @@ format:
       - brand
     css: docs/styles.css
     toc: true
+    lightbox: true
 
 
 

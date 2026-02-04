@@ -1,4 +1,6 @@
-### 4. Diffuser Fabric
+# 3. Diffuser
+
+Next, we need to attach our fabric to a platform adapter to make our diffuser.
 
 1. Cut a piece of diffuser fabric approximately **20 cm × 15 cm** (exact size is not critical; it just needs to cover the frame with ~2 cm overhang on each side).
 2. Place the diffuser frame groove-side up.
@@ -7,4 +9,7 @@
 5. Pull the fabric taut across the top.
 6. Fold the opposite end underneath and secure with 2 more magnets.
 
-**Checkpoint:** The fabric should be taut with no wrinkles. When held up to light, it should appear evenly translucent.
+::: {.callout-tip}
+## Checkpoint
+The fabric should be taut with no wrinkles. When held up to light, it should appear evenly translucent.
+:::

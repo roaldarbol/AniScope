@@ -1,0 +1,12 @@
+# 4. Assemble
+
+1. Take the **4 MakerBeam 30 cm beams** and **4 tapered bolts**.
+2. Screw a tapered bolt into each corner hole of the **bottom piece**. The beams should point upward.
+3. Slide the **diffuser frame** down the beams from above.
+4. On the sides with grooves, slide a **standard bolt** into the MakerBeam slot.
+5. Adjust the diffuser to your desired height, then tighten the bolt with a nut to lock it in place.
+6. (Optional) If using multiple diffusers, add them the same way at different heights.
+7. Slide the **arena** down the beams and secure at the desired height.
+8. Attach the **top piece** to the beam tops using the remaining tapered bolts.
+
+![Frame assembly](placeholder-for-assembly-photo.jpg)

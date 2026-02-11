@@ -6,3 +6,5 @@ include <platform_vertical.scad>;
 include <platform_wellplate.scad>;
 include <platform_diffuser.scad>;
 include <platform_petri.scad>;
+include <platform_grid.scad>;
+include <grid_arenas.scad>;

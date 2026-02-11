@@ -1,6 +1,6 @@
-MIT License
+# MIT License
 
-Copyright (c) 2022 Mikkel Roald-Arbøl
+**Copyright (c) 2026 Mikkel Roald-Arbøl**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

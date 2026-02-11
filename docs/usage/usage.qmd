@@ -1,4 +1,12 @@
-# How to Use the AniScope
+# Preparing the AniScope
+
+To prepare the setup we need:
+
+- AniScope
+- Platform / Arena
+- 12V Power Cord
+- (Optional: Dimmer)
+
 
 *[This section to be completed—cover topics such as:]*
 

@@ -1,0 +1,53 @@
+# Tracking
+
+Automated tracking has come a long way in recetn years, and there are a wealth of different tools - open-source, free, user-friendly - that can track 100's of individuals or manmy keypoints on individual animals. 
+
+```{r}
+#| echo: false
+library(gt)
+
+tibble::tribble(
+  ~Type, ~Name, ~Description,
+  
+  # Centroid tracking
+  "Centroid", "[idtracker.ai](https://idtracker.ai)", "Hundreds of individuals",
+  "Centroid", "[TRex](https://trex.run)", "Better background segmentation, but higher complexity",
+  "Centroid", "[AnimalTA](https://vchiara.eu/index.php/animalta)", NA,
+  
+  # Pose estimation
+  "Pose estimation", "[SLEAP](https://sleap.ai)", NA,
+  "Pose estimation", "[DeepLabCut](https://deeplabcut.org/)", NA,
+  "Pose estimation", "[LightningPose](https://lightning-pose.readthedocs.io/en/latest/)", NA,
+
+  # Segmentation
+  "Segmentation", "[OCTRON](https://octron-tracking.github.io/)", NA,
+  
+) |>
+  gt(groupname_col = "Type") |>
+  fmt_markdown(columns = c(Name)) |>
+  sub_missing(missing_text = "") |>
+  cols_width(
+    Type ~ pct(30),
+    Name ~ pct(10),
+    Description ~ pct(20)
+  ) |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#c4dbf4ff"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_row_groups()
+  ) |>
+  tab_style(
+    style = cell_borders(sides = "bottom", color = "#d3d3d3", weight = px(1)),
+    locations = cells_body()
+  ) |>
+  tab_style(
+    style = css(padding.left = "20px"),
+    locations = cells_body(columns = Type)
+  ) |> 
+  tab_options(
+    table.width = pct(100),
+    row_group.padding = px(10)
+  )
+```

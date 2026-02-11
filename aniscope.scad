@@ -18,7 +18,7 @@ $fn = $preview ? 60 : 60;
 
 /* [Assembly] */
 // Which part to render?
-part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), x_mount: X-mount, adapter_empty: Adapter empty, cam_adapter: Adapter camera, cam_adapter_elp: Adapter camera (ELP), adapter_breakoutgarden: Adapter Breakout Garden, adapter_neopixel: Adapter Neopixel, adapter_neopixel_lid: Adapter Neopixel lid, tube_plug: Tube plug, tube_floor: Tube floor]
+part = "frame"; // [frame: Frame, platform_adapter: Platform adapter, platform_mount: Platform mount, platform_empty: Platform (empty), platform_diffuser: Platform (diffuser), platform_tubes: Platform (tubes), platform_petri: Platform (Petri dishes), platform_wellplate: Platform (wellplate), platform_grid: Platform (grid), grid_box_scaffold: Grid box scaffold, x_mount: X-mount, adapter_empty: Adapter empty, cam_adapter: Adapter camera, cam_adapter_elp: Adapter camera (ELP), adapter_breakoutgarden: Adapter Breakout Garden, adapter_neopixel: Adapter Neopixel, adapter_neopixel_lid: Adapter Neopixel lid, tube_plug: Tube plug, tube_floor: Tube floor]
 
 // What is a tube insert?
 
@@ -42,6 +42,14 @@ chamber_dims = [100,20,20];
 wellplate_dims = [127.63,85.47,2]; 
 // Dimensions, glass tubes (outer diameter, length)
 glass_tube_dims = [20.5, 130];
+
+/* [Grid Box] */
+// Grid box height
+box_height = 50;
+// Grid box magnet spacing
+box_magnet_spacing = 85;
+// Grid box panel thickness
+box_panel_thickness = 3;
 
 /* [Camera] */
 // Number of cameras
@@ -189,6 +197,23 @@ module print_part() {
             magnet_size = magnet_size_corrected, 
             makerbeam = makerbeam,
             dish_dims = petri_dish_dims
+        );
+    } else if (part == "platform_grid") {
+        platform_grid(
+            dims = platform_dims, 
+            grid_spacing = 85,
+            grid_layout = "2x2",
+            magnet_dims = magnet_dims, 
+            magnet_size = magnet_size_corrected,
+            makerbeam = makerbeam,
+            top_magnets = false
+        );
+    } else if (part == "grid_box_scaffold") {
+        grid_box_scaffold(
+            magnet_spacing = box_magnet_spacing,
+            magnet_size = magnet_size_corrected,
+            makerbeam = makerbeam,
+            bolt_diam = primary_bolt
         );
     } else if (part == "x_mount") {
         x_mount(

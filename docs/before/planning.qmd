@@ -1,0 +1,18 @@
+# Before you Build
+
+Before you start building, it is worthwhile to carefully consider what you want to achieve with your experiment. 
+
+The AniScope assures that you can record standardised, well-lit videos against a uniform background. Everything else depends on the decisions you make. 
+
+A non-exhaustive list could look like this:
+
+- Recording in the dark?
+- Resolution?
+- Cost?
+- Data quantity?
+- Versatility?
+- Complexity?
+
+
+## Case 1: Artificial lighting at night
+For this case, John wants to know whether artificial lighting at night affects the circadian activity of a species of beetle. Knowing this question, we can already outline a few ways in which the question guides our experimental choices. First, he will need to record in both light and dark conditions - this affects the choice of cameras, and the background lighting. Recording weeks' worth of videos produces an enourmous amount of data, so we can also think what resolution is needed. Since he is interested in activity, he can make do with simple centroid tracking (as opposed to pose estimation, see X), and thus he doesn't need very high resolution. 

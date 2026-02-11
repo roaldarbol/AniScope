@@ -14,6 +14,16 @@ website:
     contents:
       - href: docs/index.qmd
         text: Introduction
+      - section: Before You Build
+        contents:
+          - href: docs/before/planning.qmd
+            text: Planning
+          - href: docs/before/cameras.qmd
+            text: Cameras
+          - href: docs/before/recording.qmd
+            text: Recording
+          - href: docs/before/tracking.qmd
+            text: Tracking
       - section: Build Instructions
         contents:
           - href: docs/build/instructions.qmd
@@ -53,6 +63,8 @@ website:
             text: Open-loop experiment
           - href: docs/usage/closed-loop.qmd
             text: Closed-loop experiment
+      - href: LICENSE.md
+        text: License
     tools:
       - icon: github
         menu:

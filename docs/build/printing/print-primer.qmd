@@ -17,3 +17,12 @@ We provide STL files for all core parts, so unless you need to customise the set
 3. **Export to G-code**, which contains the precise movement and temperature instructions for your printer.
 
 4. **Print** by loading the G-code file onto a USB stick or SD card (depending on your printer), inserting it, and starting the print.
+
+::: {.callout-tip}
+For a longer introductions, see _e.g._ [All3DP](https://all3dp.com/2/3d-printing-for-beginners-all-you-need-to-know-to-get-started/).
+:::
+
+::: {.callout-tip}
+## Buying a printer? 
+Choose reputable brands such as Prusa or Bambu that provide good quality and access to spare parts, should you ever need it.
+:::

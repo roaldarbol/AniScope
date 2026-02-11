@@ -1,0 +1,64 @@
+# Core parts
+A full set of AniScope parts takes approximately 25 hours to print, depending on your printer speed settings. These are the parts you need for a minimal setup - also see the parts rendered below.
+
+::: {.panel-tabset}
+
+## Default
+
+::: {layout="[80,20]" layout-valign="center"}
+
+| Part | Quantity | Print Time | STL |
+|------|----------|------------|-----|
+| Bottom piece | 1 | ~8 hrs | <a href="../examples/default/aniscope-floor-hex.stl" download>Download STL</a> |
+| Top piece (with mount) | 1 | ~5 hrs | |
+| Platform adapter | 2 | ~5 (10) hrs | |
+| Camera mount | 1 | ~2 hrs | |
+
+: {tbl-colwidths="[40,20,20,20]"}
+
+![](../../assets/finished-setup.jpeg)
+
+:::
+
+## Compact
+
+| Part | Quantity | Print Time | STL |
+|------|----------|------------|-----|
+| Bottom piece | 1 | ~4 hrs | |
+| Top piece | 1 | ~3 hrs | |
+
+: {tbl-colwidths="[40,20,20,20]"}
+
+## Custom
+
+Some text explaining custom configurations...
+
+:::
+
+
+
+**Optional but recommended:** Print the [magnet insertion handles](https://www.printables.com/model/442051-the-magic-magnet-tool-small-size)—they make magnet installation much easier.
+
+::: {layout-ncol=2}
+
+:::: {#camera-adapter}
+Bottom piece
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/main/examples/default/aniscope-floor-hex.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::: {#camera-adapter-2}
+Top piece (with mount)
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/main/examples/default/aniscope-top-xmount.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::: {#camera-adapter-2}
+Top piece (without mount)
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/main/examples/default/aniscope-top-empty.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::: {#camera-adapter-2}
+Platform adapter
+<iframe src="https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/roaldarbol/AniScope/main/examples/default/aniscope-platform-adapter.stl" width="100%" height="300" frameborder="0"></iframe>
+::::
+
+:::

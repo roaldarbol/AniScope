@@ -1,0 +1,16 @@
+# Print settings {#sec-print-settings}
+
+::: {.callout-note}
+We have tested all prints on a **Prusa Mini+** using PLA filament, so some settings may differ for other printers or materials. Since we use a Prusa printer, we use [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) to adjust settings and slice the model, though alternatives like [OrcaSlicer](https://www.orcaslicer.com/) work well too.
+:::
+
+The AniScope parts print easily with only a few modifications to default settings. We use **PLA** (polylactic acid), a common and beginner-friendly filament that prints at relatively low temperatures and doesn't require a heated enclosure. PLA is rigid and dimensionally stable, which works well for structural components. If your parts will be exposed to heat (e.g., near a lamp running hot), consider **PETG** instead, which has better heat resistance, but adjust the print settings accordingly.
+
+Since we are using the full build area of the Prusa Mini+, we remove the *skirt* (a test outline printed around the part) and add a *brim* for better bed adhesion. A brim extends the first layer outward from the part's edges, giving it a larger footprint so it doesn't detach mid-print—particularly useful for tall or narrow parts or parts near the edge where the temperature can be less stable. The brim peels off easily after printing.
+
+- **Nozzle diameter:** 0.4 mm (standard)
+- **Layer height:** 0.2 mm (a good balance between print speed and surface detail)
+- **Infill:** 15% (provides adequate structural stability while keeping weight and print time low)
+- **Skirt:** None (0 mm)
+- **Brim:** 3 mm
+- **Supports:** None required for the standard parts

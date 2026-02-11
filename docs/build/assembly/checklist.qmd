@@ -1,12 +1,11 @@
-## Checklist
+# Checklist
 
 - [ ] All magnets secure and properly polarised
 - [ ] LED strips illuminate evenly
 - [ ] Diffuser fabric taut and wrinkle-free
-- [ ] All frame components slide smoothly on rails
 - [ ] Camera has clear view of entire arena
 - [ ] No loose cables in the imaging area
 
 **Congratulations—your AniScope is ready to use!**
 
-![Completed AniScope](placeholder-for-hero-shot.jpg)
+<div class="tenor-gif-embed" data-postid="26254840" data-share-method="host" data-aspect-ratio="2.22222" data-width="100%"><a href="https://tenor.com/view/minions-gif-26254840">Minions GIF</a>from <a href="https://tenor.com/search/minions-gifs">Minions GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>

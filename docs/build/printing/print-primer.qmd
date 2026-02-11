@@ -1,0 +1,28 @@
+# Primer on 3D printing
+
+The AniScope requires a few 3D printed parts, primarily structural components that hold the camera, lighting, and arena in place. If you don't have access to a 3D printer, many universities have makerspaces or fabrication labs that offer printing services, and commercial services or local print shops can produce parts from STL files.
+
+3D printing can be a bit of a jungle if you are new to it, but we have tried to strip away any unnecessary complexity. This section provides a brief primer on the process and the specific settings we use. If you are already familiar with 3D printing, feel free to skip ahead to [Print settings](settings.qmd).
+
+Here are are a few steps between designing a part and having it in your hands.
+
+::: {.callout-note}
+We provide STL files for all core parts, so unless you need to customise the setup, you can skip Step 1. If you want to customise the dimensions or features of existing parts, see [Customisation](../parts.qmd#sec-customisation).
+:::
+
+1. **Design the part** using CAD-modelling software. We use [OpenSCAD](https://openscad.org/), which is open source and free. This produces an **STL file**—a standard format that describes the 3D geometry of your part.
+
+2. **Slice the model** by importing the STL file into slicer software. The slicer converts your 3D model into layer-by-layer instructions the printer can follow. Since we use a Prusa printer, we use [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/), though alternatives like [OrcaSlicer](https://www.orcaslicer.com/) work well too. Here you can adjust print settings such as layer height, infill density, and support structures (see [Print settings](settings.qmd)).
+
+3. **Export to G-code**, which contains the precise movement and temperature instructions for your printer.
+
+4. **Print** by loading the G-code file onto a USB stick or SD card (depending on your printer), inserting it, and starting the print.
+
+::: {.callout-tip}
+For a longer introductions, see _e.g._ [All3DP](https://all3dp.com/2/3d-printing-for-beginners-all-you-need-to-know-to-get-started/).
+:::
+
+::: {.callout-tip}
+## Buying a printer? 
+Choose reputable brands such as Prusa or Bambu that provide good quality and access to spare parts, should you ever need it.
+:::

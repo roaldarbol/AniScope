@@ -1,7 +1,10 @@
 use <platform_empty.scad>;
+use <../core/core.scad>;
+use <../misc/misc.scad>;
 
 module platform_sleep_preference(
     dims,
+    module_type,
     magnet_dims,
     magnet_size,
     makerbeam
@@ -13,8 +16,7 @@ module platform_sleep_preference(
                 dims = dims, 
                 magnet_dims = magnet_dims,
                 magnet_size = magnet_size, 
-                makerbeam = makerbeam,
-                corner_height=magnet_size[1]+2
+                makerbeam = makerbeam
             );
             
             // Remove outer edges
@@ -23,19 +25,38 @@ module platform_sleep_preference(
             cube([removal,dims[1],makerbeam], center=true);
             translate([((-dims[0]-removal/2)/2)+0.4,0,0])
             cube([removal,dims[1],makerbeam], center=true);
+
+            // rounded_cube([80, 80, 50], outside = true);
+            // rounded_cube([83, 83, 10], outside = true);
         }
         
-        for (i=[-1,1]){
-            for (j=[-1,1]){
-                translate([i*dims[1]/4.5, j*dims[1]/4.5,0])
-                sleep_preference_module();
+        if (module_type == "a"){
+            for (i=[-1,1]){
+                for (j=[-1,1]){
+                    translate([i*dims[1]/4.5, j*dims[1]/4.5,0])
+                    sleep_preference_module_a();
+                }
+            }
+        } else if (module_type == "b") {
+            translate([0,0,dims[2]/2]){
+                translate([0,0,40 / 2])
+                difference(){
+                    rounded_cube([84, 84, 40], outside = true);
+                    rounded_cube([82, 82, 50], outside = true);
+                    translate([0,-5,0])
+                    #rounded_cube([40, 82, 40], outside = true);
+                }
+                
+                // Main place
+                translate([0,-50,40 / 2 - 1.5])
+                fan_holder([40,12,40]);
             }
         }
     }
 }
 
 
-module sleep_preference_module(
+module sleep_preference_module_a(
     n_rooms = 4
 ) {
 

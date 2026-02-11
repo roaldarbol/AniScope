@@ -1,4 +1,4 @@
-### 6. Camera
+# 6. Camera
 
 If using a **USB camera** with the X-mount top:
 

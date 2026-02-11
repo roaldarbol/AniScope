@@ -1,9 +1,3 @@
-# Recording videos
-
-You need a camera, and possibly software for recording the video.
-
-## Cameras
-
 ::: {.panel-tabset}
 
 ## USB
@@ -26,14 +20,4 @@ Canon, Sony, Nikon
 
 GoPro, DJI
 
-:::
-
-## Software
-
-::: {.panel-tabset}
-## Bonsai
-[Bonsai](https://bonsai-rx.org/)
-
-## OBS
-[OBS](https://obsproject.com/da) 
 :::

@@ -1,8 +1,12 @@
-### 2. LED Strips
+# 2. LED strips
 
-> **Warning:** When stripping waterproof strips, remove only the silicone coating, ensuring not to cut the strip itself.
+::: {.callout-caution}
+When stripping waterproof strips, remove only the silicone coating, ensuring not to cut the strip itself.
+:::
 
-> **Warning:** Do not lift the metal contacts inside the click connectors. This causes loose connections that are difficult to fix.
+::: {.callout-caution}
+Do not lift the metal contacts inside the click connectors. This causes loose connections that are difficult to fix.
+:::
 
 1. Cut **4 segments** from the LED strip roll, each **2 LEDs long** (~10 cm). Cut only on the marked lines.
 2. If using waterproof strips: carefully trim ~1 cm of silicone coating from each end to expose the contacts.
@@ -16,4 +20,11 @@
 
 ![LED strip assembly diagram](placeholder-for-led-diagram.jpg)
 
-**Checkpoint:** Connect to 12V power briefly. All four strips should illuminate evenly - this may not be visible by eye, instead point an IR-sensitive camera at the strips to see whether they light up. If any strip is dim or off, check that connector's contacts.
+::: {.callout-tip}
+## Checkpoint
+Connect to 12V power briefly. All four strips should illuminate evenlyIf any strip is dim or off, check that connector's contacts.
+:::
+
+::: {.callout-tip}
+If you are using IR leds, this may not be visible by eye - instead point an IR-sensitive camera at the strips to see whether they light up. 
+:::

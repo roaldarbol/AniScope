@@ -1,0 +1,7 @@
+::: {.panel-tabset}
+## Bonsai
+[Bonsai](https://bonsai-rx.org/)
+
+## OBS
+[OBS](https://obsproject.com/da) 
+:::
